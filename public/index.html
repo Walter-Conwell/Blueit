@@ -14,25 +14,42 @@
   <body>
     <!-- header -->
     <header><h1>Blueit</h1></header>
-    <div id="side-bar"></div>
-      <aside
-        class="d-flex flex-column vlex-shrink-0 p-3 text-white bg-dark"
-        style="width 230px;"
-      >
-      <form class="mb-3">
+    <!-- body -->
+    <body>
+      <div class="container">
+        <aside class="sidebar">
+          <form class="mb-2">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search">
+              <input type="text" class="form-control" placeholder="Search" />
               <button class="btn btn-primary" type="submit">Search</button>
             </div>
-      </aside>
+          </form>
+          <div class="sidebarContent">
+            Sample item<br />
+            Sample item<br />
+            Sample item<br />
+            Sample item<br />
+            Sample item<br />
+            Sample item<br />
+            Sample item<br />
+          </div>
+        </aside>
 
-      <div class="blogSample">Sample blog</div>
-      <div class="blogSample">Sample blog</div>
-      <div class="blogSample">Sample blog</div>
-      <nav class="navSample">
-        <a href="#">Sign Up</a> <a href="#">Login</a> etc.
+        <div class="content">
+          <div class="blog">Sample blog</div>
+          <div class="blog">Sample blog</div>
+          <div class="blog">Sample blog</div>
+          <div class="blog">Sample blog</div>
+        </div>
+      </div>
+
+      <nav class="navigation">
+        <a href="#">Sign Up</a>&nbsp;
+        <a href="#">Login</a>
+        <!-- Add more navigation links if needed -->
       </nav>
-    </div>
+    </body>
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
