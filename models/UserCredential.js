@@ -6,7 +6,7 @@ class UserCredentials extends Model {}
 UserCredentials.init(
   {
     id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
@@ -23,6 +23,7 @@ UserCredentials.init(
       type: DataTypes.STRING,
       allowNull: false,
       validator: {
+        isAlphanumeric: true,
         len: [8],
       },
     },
