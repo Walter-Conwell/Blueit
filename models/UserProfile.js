@@ -21,14 +21,14 @@ UserProfile.init(
       allowNull: true,
     },
 
-    // user_cred_id: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   references: {
-    //     model: "user_credentials",
-    //     key: "id",
-    //   },
-    // },
+    user_cred_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "user_credentials",
+        key: "id",
+      },
+    },
     photo_file: {
       type: DataTypes.STRING,
     },
