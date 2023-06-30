@@ -1,4 +1,4 @@
-const { UserProfile } = require("../models/UserProfile");
+const UserProfile = require("../models/UserProfile");
 
 const userProfileData = [
   {
