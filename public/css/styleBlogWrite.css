@@ -147,7 +147,10 @@ a:hover {
 .content {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5%;
+    width: 75%;
 }
 
 .blog {
@@ -155,8 +158,14 @@ a:hover {
     box-shadow: 2px 2px 4px #d7d7d7;
     font-size: 20px;
     margin-top: 2.5%;
-    margin-left: 3%;
     padding: 3%;
+}
+
+.editBar {
+    background-color: #ffffff93;
+    box-shadow: 2px 2px 4px #d7d7d7;
+    font-size: 16px;
+    padding: 1.5%;
 }
 
 .navigation {
@@ -197,7 +206,7 @@ body.dark-theme {
     color: #767676;
 }
 
-.dark-theme .blog {
+.dark-theme .blog, .dark-theme .editBar {
     background-color: #33333399;
     box-shadow: 2px 2px 5px #161616e4;
     color: #767676;
