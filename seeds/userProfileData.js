@@ -2,11 +2,11 @@ const { UserProfile } = require("../models");
 
 const userProfileData = [
   {
-    username: "Splorna123",
-    name: "Splorna Shmangleberg",
+    username: "StanleyIzCool",
+    name: "Stanley Yelnats",
     user_cred_id: 1,
-    photo_file: "splorna.jpg",
-    bio: "Hi my name is splorna. I love writing bios",
+    photo_file: "stanley.jpg",
+    bio: "Hi my name is Stanley. I love writing bios",
   },
 ];
 

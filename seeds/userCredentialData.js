@@ -1,4 +1,4 @@
-const { UserCredential } = require("../models");
+const { UserCredentials } = require("../models");
 
 const usercredentialdata = [
   {
@@ -28,6 +28,7 @@ const usercredentialdata = [
   },
 ];
 
-const seedUserCredential = () => UserCredential.bulkCreate(usercredentialdata);
+const seedUserCredentials = () =>
+  UserCredentials.bulkCreate(usercredentialdata);
 
-module.exports = seedUserCredential;
+module.exports = seedUserCredentials;

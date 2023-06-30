@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connections.js");
+const sequelize = require("../config/connection.js");
 
 class UserCredentials extends Model {}
 
@@ -32,6 +32,8 @@ UserCredentials.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: "user",
+    modelName: "user_credentials",
   }
 );
+
+module.exports = UserCredentials;
