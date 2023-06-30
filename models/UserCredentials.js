@@ -32,6 +32,8 @@ UserCredentials.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: "user",
+    modelName: "user_credentials",
   }
 );
+
+module.exports = UserCredentials;

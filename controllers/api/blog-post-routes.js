@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Post } = require("../../models");
+const { BlogPost } = require("../../models");
 
 // GET all posts in a category
 router.get("/:cat", async (req, res) => {
