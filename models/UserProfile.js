@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const sequelize = require("../config/connections");
 const { TEXT } = require("sequelize");
 
 class UserProfile extends Model {}
@@ -13,12 +13,12 @@ UserProfile.init(
       autoIncrement: true,
     },
     username: {
-      type: varchar(255),
+      type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     },
     name: {
-      type: varchar(255),
+      type: DataTypes.STRING,
       allowNull: true,
     },
 
@@ -30,7 +30,7 @@ UserProfile.init(
         key: "id",
       },
       photo_file: {
-        type: varchar(255),
+        type: DataTypes.STRING,
       },
       bio: {
         type: DataTypes.TEXT,
@@ -45,4 +45,4 @@ UserProfile.init(
   }
 );
 
-module.exports = Post;
+module.exports = UserProfile;
