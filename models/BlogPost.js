@@ -11,6 +11,10 @@ BlogPost.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    post_category: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     post_title: {
       type: DataTypes.STRING,
       allowNull: false,
