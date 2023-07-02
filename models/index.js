@@ -1,5 +1,14 @@
 const User = require("./User");
-const Channel = require("./Channel");
+const Topic = require("./Topic");
 const BlogPost = require("./BlogPost");
 
-module.exports = { User, Channel, BlogPost };
+User.hasMany(BlogPost, {
+  foreignKey: "user_id",
+  onDelete: "CASCADE",
+});
+
+BlogPost.belongsTo(User, {
+  foreignKey: "user_id",
+});
+
+module.exports = { User, Topic, BlogPost };
