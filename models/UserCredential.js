@@ -1,9 +1,10 @@
 const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection.js");
+const bcrypt = require("bcrypt");
+const sequelize = require("../config/connection");
 
-class UserCredentials extends Model {}
+class UserCredential extends Model {}
 
-UserCredentials.init(
+UserCredential.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -29,6 +30,15 @@ UserCredentials.init(
     },
   },
   {
+    hooks: {
+      async beforeCreate(newUserCredData) {
+        newUserCredData.password = await bcrypt.hash(
+          newUserCredData.password,
+          10
+        );
+        return newUserCredData;
+      },
+    },
     sequelize,
     freezeTableName: true,
     underscored: true,
@@ -36,4 +46,4 @@ UserCredentials.init(
   }
 );
 
-module.exports = UserCredentials;
+module.exports = UserCredential;

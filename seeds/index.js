@@ -1,11 +1,11 @@
 const sequelize = require("../config/connection");
-const seedUserCredentials = require("./userCredentialData");
+const seedUserCredential = require("./userCredentialData");
 const seedUserProfile = require("./userProfileData");
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
 
-  await seedUserCredentials();
+  await seedUserCredential();
   await seedUserProfile();
 
   process.exit(0);
