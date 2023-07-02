@@ -1,14 +1,14 @@
 const UserProfile = require("./UserProfile");
-const UserCredentials = require("./UserCredentials");
+const UserCredential = require("./UserCredential");
 const Channel = require("./Channel");
 const BlogPost = require("./BlogPost");
 
-UserCredentials.hasOne(UserProfile, {
+UserCredential.hasOne(UserProfile, {
   foreignKey: "user_cred_id",
 });
 
-UserProfile.belongsTo(UserCredentials, {
+UserProfile.belongsTo(UserCredential, {
   foreignKey: "user_cred_id",
 });
 
-module.exports = { UserProfile, UserCredentials, Channel, BlogPost };
+module.exports = { UserProfile, UserCredential, Channel, BlogPost };
