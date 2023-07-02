@@ -1,6 +1,16 @@
 const router = require("express").Router();
 const { BlogPost } = require("../../models");
 
+// GET all posts
+router.get("/", async (req, res) => {
+  try {
+    const posts = await BlogPost.findAll();
+    res.status(200).json(posts);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // GET all posts in a category
 router.get("/:cat", async (req, res) => {
   try {
@@ -30,6 +40,18 @@ router.get("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+// router.get("/:id", async (req, res) => {
+//   try {
+//     const postData = await BlogPost.findByPk(req.params.id);
+//     if (!postData) {
+//       res.status(404).json({ message: "No post with this id" });
+//       return;
+//     }
+//     res.status(200).json(postData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // POST a blog post
 router.post("/", async (req, res) => {
@@ -50,14 +72,17 @@ router.post("/", async (req, res) => {
 
 router.put("/:id", (req, res) => {});
 
-router.delete("/:id", (req, res) => {
-  BlogPost.destroy({
-    where: {
-      id: req.params.id,
-    },
-  }).catch((err) => {
+router.delete("/:id", async (req, res) => {
+  try {
+    await BlogPost.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.status(200).json({ message: "Post deleted" });
+  } catch (err) {
     res.status(500).json(err);
-  });
+  }
 });
 
 module.exports = router;
