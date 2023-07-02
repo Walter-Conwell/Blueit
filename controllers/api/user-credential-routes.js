@@ -1,27 +1,31 @@
 const router = require("express").Router();
-const { UserCredential } = require("../../models");
+const { User } = require("../../models");
 
+// GET all users
 router.get("/", (req, res) => {
-  UserCredential.findAll()
-    .then((dbuserCredData) => res.json(dbuserCredData))
+  User.findAll()
+    .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
 });
 
+// http://localhost:3001/api/credentials
+
 // Create a new user
 router.post("/", async (req, res) => {
   try {
-    const dbuserCredData = await UserCredential.create({
+    const dbUserData = await User.create({
       email: req.body.email,
       password: req.body.password,
+      username: req.body.username,
     });
 
     req.session.save(() => {
       req.session.loggedIn = true;
 
-      res.status(200).json(dbuserCredData);
+      res.status(200).json(dbUserData);
     });
   } catch (err) {
     console.log(err);
@@ -29,23 +33,26 @@ router.post("/", async (req, res) => {
   }
 });
 
+// Login route
 router.post("/login", async (req, res) => {
   try {
-    const dbuserCredData = await UserCredential.findOne({
+    const dbUserData = await User.findOne({
       where: {
         email: req.body.email,
       },
     });
 
-    if (!dbuserCredData) {
+    if (!dbUserData) {
       res.status(400).json({ message: "Incorrect email" });
+      // change to incorrect email or password
       return;
     }
 
-    const validPassword = await dbuserCredData.checkPassword(req.body.password);
+    const validPassword = await dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res.status(400).json({ message: "Incorrect password" });
+      // change to incorrect email or password
       return;
     }
 
@@ -54,7 +61,7 @@ router.post("/login", async (req, res) => {
 
       res
         .status(200)
-        .json({ user: dbuserCredData, message: "You are now logged in!" });
+        .json({ user: dbUserData, message: "You are now logged in!" });
     });
   } catch (err) {
     console.log(err);
@@ -62,6 +69,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// Logout route
 router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
@@ -72,19 +80,20 @@ router.post("/logout", (req, res) => {
   }
 });
 
+// Update a user
 router.put("/:id", (req, res) => {
-  // update a userCred by its `id` value
-  UserCredential.update(req.body, {
+  // update a User by its `id` value
+  User.update(req.body, {
     where: {
       id: req.params.id,
     },
   })
-    .then((dbuserCredData) => {
-      if (!dbuserCredData[0]) {
+    .then((dbUserData) => {
+      if (!dbUserData[0]) {
         res.status(404).json({ message: "No user found with this id" });
         return;
       }
-      res.json(dbuserCredData);
+      res.json(dbUserData);
     })
     .catch((err) => {
       console.log(err);
@@ -92,19 +101,19 @@ router.put("/:id", (req, res) => {
     });
 });
 
+// Delete a user
 router.delete("/:id", (req, res) => {
-  // delete a userCred by its `id` value
-  UserCredential.destroy({
+  User.destroy({
     where: {
       id: req.params.id,
     },
   })
-    .then((dbuserCredData) => {
-      if (!dbuserCredData) {
+    .then((dbUserData) => {
+      if (!dbUserData) {
         res.status(404).json({ message: "No user found with this id" });
         return;
       }
-      res.json(dbuserCredData);
+      res.json(dbUserData);
     })
     .catch((err) => {
       console.log(err);
