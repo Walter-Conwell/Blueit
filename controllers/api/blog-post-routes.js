@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { BlogPost } = require("../../models");
+const { BlogPost, Topic } = require("../../models");
 
 //localhost:3001/api/blogposts
 
@@ -13,18 +13,20 @@ http: router.get("/", async (req, res) => {
   }
 });
 
-// GET all posts in a category
-router.get("/:cat", async (req, res) => {
+// GET all posts in a topic
+router.get("/:topic", async (req, res) => {
   try {
-    const posts = await BlogPost.findAll({
-      where: { post_category: req.params.cat },
-    });
-    if (!posts) {
-      res.status(404).json({ message: "No posts in that category" });
-      return;
+    // Read the 3 lines below very carefully
+    const posts = await BlogPost.findAll({ where: {
+        post_category_id: Topic.findOne({ where: { topic_name: req.params.topic }}).id,
+    }});
+    if(!posts){
+        res.status(404).json({ message: 'No topic with that name'});
+        return;
     }
     res.status(200).json(posts);
-  } catch (err) {
+  }
+  catch (err) {
     res.status(500).json(err);
   }
 });
@@ -46,20 +48,25 @@ router.get("/:id", async (req, res) => {
 // POST a blog post
 router.post("/", async (req, res) => {
   try {
-    const newPost = await BlogPost.create({
-      post_category: req.body.post_category,
-      post_title: req.body.post_title,
-      post_text: req.body.post_text,
-      post_date: new Date(),
-      user_id: req.body.user_id,
+    Topic.findOne({ where: { topic_name: req.body.topic }}).then(async (data) => {
+        const topicID = data.id;
+        console.log('\n\ndata:' + data.id);
+        const newPost = await BlogPost.create({
+          post_topic_id: topicID,
+          post_title: req.body.post_title,
+          post_text: req.body.post_text,
+          post_date: new Date(),
+          user_id: req.body.user_id,
+        });
+        res.status(200).json(newPost);
     });
-    res.status(200).json(newPost);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
+// edit a previous post
 router.put("/:id", (req, res) => {
   BlogPost.update(req.body, {
     where: {
@@ -73,6 +80,7 @@ router.put("/:id", (req, res) => {
     });
 });
 
+// DELETE a previous post
 router.delete("/:id", async (req, res) => {
   try {
     await BlogPost.destroy({
@@ -89,7 +97,7 @@ router.delete("/:id", async (req, res) => {
 module.exports = router;
 
 // {
-// 	"post_category": "",
+// 	"topic": "",
 //   "post_title": "",
 // 	"post_text": "",
 // 	"user_id": ""

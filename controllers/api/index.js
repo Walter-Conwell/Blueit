@@ -1,14 +1,14 @@
 const router = require("express").Router();
 
-const TopicRoutes = require("./Topic-routes");
+const topicRoutes = require("./topic-routes");
 const blogpostRoutes = require("./blog-post-routes");
 const userRoutes = require("./user-profile-routes");
-const UserCredentialRoutes = require("./user-credential-routes");
+const userCredentialRoutes = require("./user-credential-routes");
 const userProfileRoutes = require("./user-profile-routes");
 
 router.use("/profiles", userProfileRoutes);
-router.use("/credentials", UserCredentialRoutes);
-router.use("/Topics", TopicRoutes);
+router.use("/credentials", userCredentialRoutes);
+router.use("/Topics", topicRoutes);
 router.use("/blogposts", blogpostRoutes);
 router.use("/users", userRoutes);
 

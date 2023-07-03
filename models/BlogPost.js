@@ -11,9 +11,13 @@ BlogPost.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    post_category: {
-      type: DataTypes.STRING,
+    post_topic_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: 'topic',
+        key: 'id',
+      },
     },
     post_title: {
       type: DataTypes.STRING,

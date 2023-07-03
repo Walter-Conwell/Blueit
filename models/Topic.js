@@ -19,6 +19,10 @@ Topic.init(
         isAlphanumeric: true,
       },
     },
+    theme: { // store the theme information in a single string, similar to JSON
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   },
   {
     hooks: {
