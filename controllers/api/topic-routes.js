@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
       });
       res.status(200).json(newTopic);
     } else {
-      // need to finish this route, which will probably end up in blog-post-routes.
+      res.status(500).json({message: 'Topic already exists'});
     }
   } catch (err) {
     console.log(err);
@@ -26,7 +26,14 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/:id", (req, res) => {});
+router.put("/:id", (req, res) => {
+  Topic.update(req.body, { where: { id: req.params.id }})
+  .then(() => {
+    if(req.body.topic_name){
+      
+    }
+  })
+});
 
 router.delete("/:id", (req, res) => {});
 
