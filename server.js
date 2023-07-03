@@ -29,7 +29,7 @@ app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static(path.join(__dirname, "public")));
-app.use(require("./controllers/home-routes"));
+app.use(require("./controllers"));
 
 app.get("/blogwrite", (req, res) => {
   res.render("main", { isBlogWrite: true });
