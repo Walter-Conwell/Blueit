@@ -1,10 +1,55 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-pgrnhXLRyC4phEeFcIc3E6yX6D8OIJ8/bA+UfsWu3YwWkxv6/MCf/q3hMfkh+eARwepnbt3qQYb5VLhl04rDLA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Blueit</title>
+</head>
 
-  </body>
+<body class="dark-theme">
+    {{> login}}
+    {{> signup }}
+
+    <header>
+        <h1>Blueit</h1>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            {{> sidebar}}
+        </aside>
+
+        <div class="content">
+            {{{body}}}
+
+            {{#if isBlogWrite}}
+            {{> blogwrite}}
+            {{/if}}
+            </div>
+        </div>
+    </div>
+
+    <nav class="navigation">
+        <button id="themeToggleTestBtn">Toggle beta</button> <!-- temporary button for dev purposes --->
+        <button id="blogWriteBtn">Write blog</button> <!-- temporary button for dev purposes --->
+        <button id="signUpBtn">Sign Up</button>
+        <button id="loginBtn">Login</button>
+    </nav>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+    <script src="./js/blogWrite.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/signup.js"></script>
+    <script src="./js/themes.js"></script>
+</body>
+
 </html>
