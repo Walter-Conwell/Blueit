@@ -2,6 +2,7 @@ const path = require("path");
 const session = require("express-session");
 const express = require("express");
 const exphbs = require("express-handlebars");
+const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const hbs = exphbs.create({});
 
@@ -28,6 +29,7 @@ app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "views"));
 
+app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(require("./controllers"));
 
@@ -35,6 +37,8 @@ app.get("/blogwrite", (req, res) => {
   res.render("main", { isBlogWrite: true });
 });
 
-app.listen(PORT, () => {
-  console.log("Server listening on: http://localhost:" + PORT);
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => {
+    console.log("Server listening on: http://localhost:" + PORT);
+  });
 });

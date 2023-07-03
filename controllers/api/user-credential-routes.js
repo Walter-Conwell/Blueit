@@ -16,6 +16,8 @@ router.get("/", (req, res) => {
 // Create a new user
 router.post("/", async (req, res) => {
   try {
+    console.log("Enetered try block");
+    console.log(req.body);
     const dbUserData = await User.create({
       email: req.body.email,
       password: req.body.password,
