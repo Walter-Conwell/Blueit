@@ -8,7 +8,7 @@ const userProfileRoutes = require("./user-profile-routes");
 
 router.use("/profiles", userProfileRoutes);
 router.use("/credentials", userCredentialRoutes);
-router.use("/Topics", topicRoutes);
+router.use("/topics", topicRoutes);
 router.use("/blogposts", blogpostRoutes);
 router.use("/users", userRoutes);
 

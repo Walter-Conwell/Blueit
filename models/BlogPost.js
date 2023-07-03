@@ -11,14 +11,6 @@ BlogPost.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    post_topic_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'topic',
-        key: 'id',
-      },
-    },
     post_title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -27,8 +19,13 @@ BlogPost.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    post_date: {
-      type: DataTypes.DATE,
+    post_topic_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "topic",
+        key: "id",
+      },
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -37,6 +34,9 @@ BlogPost.init(
         model: "user",
         key: "id",
       },
+    },
+    post_date: {
+      type: DataTypes.DATE,
     },
   },
   {

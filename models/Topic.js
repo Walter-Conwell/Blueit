@@ -16,24 +16,40 @@ Topic.init(
       allowNull: false,
       validate: {
         len: [1, 50],
-        isAlphanumeric: true,
+        // isAlphanumeric: true,
       },
     },
-    theme: { // store the theme information in a single string, similar to JSON
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
+    // theme: {
+    //   // store the theme information in a single string, similar to JSON
+    //   type: DataTypes.STRING,
+    //   allowNull: true,
+    // },
   },
   {
     hooks: {
       async beforeCreate(newTopicData) {
         newTopicData.topic_name = await newTopicData.topic_name.toLowerCase();
-        // use split to split the string into an array
-        // use map to iterate over the array and
+        Array.from(newTopicData.topic_name).forEach((char) => {
+          if (char === " ") {
+            newTopicData.topic_name = newTopicData.topic_name.replace(
+              char,
+              "_"
+            );
+          }
+        });
+        // Array.from(newTopicData.topic_name).forEach((char) => {
+        //   if (char === ", ") {
+        //     newTopicData.topic_name = newTopicData.topic_name.replace(
+        //       char,
+        //       ","
+        //     );
+        //   }
+        // });
         return newTopicData;
       },
     },
     sequelize,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: "Topic",
