@@ -5,15 +5,21 @@ var signUpClose = signUpModal.getElementsByClassName("close")[0];
 
 const signupFormHandler = async (event) => {
   event.preventDefault();
+  console.log("button clicked");
 
   // Collect values from the login form
-  const username = document.querySelector("#defaultForm-username").value.trim();
-  const email = document.querySelector("#defaultForm-email").value.trim();
-  const password = document.querySelector("#defaultForm-pass").value.trim();
+  console.log(document.querySelector("#defaultSignUpForm-username"));
+  const username = document
+    .querySelector("#defaultSignUpForm-username")
+    .value.trim();
+  const email = document.querySelector("#defaultSignUpForm-email").value.trim();
+  const password = document
+    .querySelector("#defaultSignUpForm-pass")
+    .value.trim();
 
   if (username && email && password) {
     // Send a POST request to the API endpoint
-    const response = await fetch("/api/user-credentials", {
+    const response = await fetch("/api/credentials", {
       method: "POST",
       body: JSON.stringify({ username, email, password }),
       headers: { "Content-Type": "application/json" },
@@ -43,5 +49,5 @@ window.onclick = function (event) {
 };
 
 document
-  .querySelector("#modalSignupBtn")
-  .addEventListener("submit", signupFormHandler);
+  .querySelector("#modalSignUpBtn")
+  .addEventListener("click", signupFormHandler);
