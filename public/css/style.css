@@ -17,7 +17,9 @@
 
 #loginBtn,
 #signUpBtn,
-#themeToggleTestBtn, #blogWriteBtn {
+#themeToggleTestBtn,
+#blogWriteBtn,
+#backToMainBtn {
     display: inline-block;
     outline: none;
     cursor: pointer;
@@ -66,8 +68,9 @@
 #modalLoginBtn:hover,
 #signUpBtn:hover,
 #modalSignUpBtn:hover,
-#themeToggleTestBtn:hover
-#blogWriteBtn:hover {
+#themeToggleTestBtn:hover,
+#blogWriteBtn:hover,
+#backToMainBtn:hover {
     background-color: #205cdd;
     transition: all .2s ease;
     box-shadow: 0 0 0 0 #dedede;
@@ -129,6 +132,17 @@ a:hover {
 .container {
     display: flex;
     background-color: transparent;
+}
+
+.editBar {
+    background-color: #ffffff93;
+    box-shadow: 2px 2px 4px #d7d7d7;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    font-size: 16px;
+    padding: 1.5%;
 }
 
 .sidebar {
@@ -199,7 +213,8 @@ body.dark-theme {
     color: #767676;
 }
 
-.dark-theme .blog {
+.dark-theme .blog,
+.dark-theme .editBar {
     background-color: #33333399;
     box-shadow: 2px 2px 5px #161616e4;
     color: #767676;
@@ -214,7 +229,8 @@ body.dark-theme {
 .dark-theme #loginBtn,
 .dark-theme #signUpBtn,
 .dark-theme #themeToggleTestBtn,
-.dark-theme #blogWriteBtn {
+.dark-theme #blogWriteBtn,
+.dark-theme #backToMainBtn {
     background-color: #252525;
     color: #505050;
 }
@@ -228,7 +244,8 @@ body.dark-theme {
 .dark-theme #signUpBtn:hover,
 .dark-theme #themeToggleTestBtn:hover,
 .dark-theme #searchButton:hover,
-.dark-theme #blogWriteBtn:hover {
+.dark-theme #blogWriteBtn:hover,
+.dark-theme #backToMainBtn:hover {
     color: #9d9d9d;
     background-color: #222222;
     box-shadow: 2px 2px 5px #171717bd;
