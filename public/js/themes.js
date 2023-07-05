@@ -1,4 +1,4 @@
-// baby beta toggler js
+// theme toggler button
 var themeToggle = document.getElementById("themeToggleTestBtn");
 const body = document.body;
 
@@ -15,3 +15,11 @@ var userPrefersDark =
 if (userPrefersDark) {
   body.classList.add("dark-theme");
 }
+
+// from "main" page, navigates to "blogwrite" page
+// (might end up getting moved to a different file)
+
+const blogWriteBtn = document.getElementById("blogWriteBtn");
+blogWriteBtn.addEventListener("click", () => {
+  window.location.href = "/blogwrite";
+});

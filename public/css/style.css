@@ -19,7 +19,7 @@
 #signUpBtn,
 #themeToggleTestBtn,
 #blogWriteBtn,
-#backToMainBtn {
+#saveBlogBtn {
     display: inline-block;
     outline: none;
     cursor: pointer;
@@ -70,7 +70,7 @@
 #modalSignUpBtn:hover,
 #themeToggleTestBtn:hover,
 #blogWriteBtn:hover,
-#backToMainBtn:hover {
+#saveBlogBtn:hover {
     background-color: #205cdd;
     transition: all .2s ease;
     box-shadow: 0 0 0 0 #dedede;
@@ -143,6 +143,18 @@ a:hover {
     width: 90%;
     font-size: 16px;
     padding: 1.5%;
+}
+
+#editorContainer {
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 80%;
+    width: 80%;
+}
+
+#editor {
+    height: 375px;
 }
 
 .sidebar {
@@ -230,7 +242,7 @@ body.dark-theme {
 .dark-theme #signUpBtn,
 .dark-theme #themeToggleTestBtn,
 .dark-theme #blogWriteBtn,
-.dark-theme #backToMainBtn {
+.dark-theme #saveBlogBtn {
     background-color: #252525;
     color: #505050;
 }
@@ -245,7 +257,7 @@ body.dark-theme {
 .dark-theme #themeToggleTestBtn:hover,
 .dark-theme #searchButton:hover,
 .dark-theme #blogWriteBtn:hover,
-.dark-theme #backToMainBtn:hover {
+.dark-theme #saveBlogBtn:hover {
     color: #9d9d9d;
     background-color: #222222;
     box-shadow: 2px 2px 5px #171717bd;
