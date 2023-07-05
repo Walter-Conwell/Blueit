@@ -4,13 +4,18 @@ const { Topic } = require("../../models");
 router.get("/", (req, res) => {});
 
 // create a new topic
+//takes topics in via req.body.topic_name, then compares the contents with the database
+//new entries are added to the database, and entries that already exist are returned with their IDs
+//This allows the front end to not have to worry about whether or not a topic already exists
+//and then allows the front end to create a new blog post with the correct topic IDs attached
+
 router.post("/", async (req, res) => {
   try {
     var topics = req.body.topic_name.split(", ");
     console.log(`line 10 ${topics}}`);
     console.log(typeof topics);
-    var newTopics = [];
-    var existingTopics = [];
+    // var newTopics = [];
+    // var existingTopics = [];
     var returnedTopics = [];
 
     for (var topicName of topics) {
