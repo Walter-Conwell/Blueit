@@ -31,10 +31,6 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(require("./controllers"));
 
-app.get("/blogwrite", (req, res) => {
-  res.render("main", { isBlogWrite: true });
-});
-
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
     console.log("Server listening on: http://localhost:" + PORT);
