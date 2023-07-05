@@ -12,7 +12,12 @@ router.post("/", async (req, res) => {
     var newTopics = [];
     var existingTopics = [];
 
-    for (const topicName of topics) {
+    for (var topicName of topics) {
+      Array.from(topicName).forEach((char) => {
+        if (char === " ") {
+          topicName = topicName.replace(char, "_");
+        }
+      });
       const topicExists = await Topic.findOne({
         where: {
           topic_name: topicName,
@@ -27,6 +32,7 @@ router.post("/", async (req, res) => {
       } else if (existingTopics.includes(topicName)) {
         existingTopics.push(topicName);
       }
+      console.log(`line 31 ${topicName}`);
     }
 
     // console.log(newTopics);
