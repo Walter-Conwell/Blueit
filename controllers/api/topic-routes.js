@@ -6,10 +6,11 @@ router.get("/", (req, res) => {});
 // create a new topic
 router.post("/", async (req, res) => {
   try {
-    const topics = req.body.topic_name.split(", ");
-
-    const newTopics = [];
-    const existingTopics = [];
+    var topics = req.body.topic_name.split(", ");
+    console.log(`line 10 ${topics}}`);
+    console.log(typeof topics);
+    var newTopics = [];
+    var existingTopics = [];
 
     for (const topicName of topics) {
       const topicExists = await Topic.findOne({
@@ -23,10 +24,13 @@ router.post("/", async (req, res) => {
           topic_name: topicName,
         });
         newTopics.push(newTopic);
-      } else if (newTopic === topicName) {
+      } else if (existingTopics.includes(topicName)) {
         existingTopics.push(topicName);
       }
     }
+
+    // console.log(newTopics);
+    // console.log(existingTopics);
 
     if (newTopics.length > 0) {
       res.status(200).json({
