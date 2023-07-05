@@ -1,4 +1,4 @@
-const { Model, Datatypes } = require("sequelize");
+const { Model, DataTypes } = require("sequelize");
 
 const sequelize = require("../config/connection");
 
@@ -7,20 +7,20 @@ class BlogPostTopic extends Model {}
 BlogPostTopic.init(
   {
     id: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
     blog_post_id: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       references: {
         model: "blog_post",
         key: "id",
       },
     },
     topic_id: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       references: {
         model: "topic",
         key: "id",

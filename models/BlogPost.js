@@ -19,14 +19,14 @@ BlogPost.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    post_topic_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "topic",
-        key: "id",
-      },
-    },
+    // post_topic_id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   references: {
+    //     model: "topic",
+    //     key: "id",
+    //   },
+    // },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -35,9 +35,9 @@ BlogPost.init(
         key: "id",
       },
     },
-    post_date: {
-      type: DataTypes.DATE,
-    },
+    // post_date: {
+    //   type: DataTypes.DATE,
+    // },
   },
   {
     sequelize,

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { BlogPost, Topic } = require("../../models");
+const { BlogPost, Topic, BlogPostTopic } = require("../../models");
 
 //localhost:3001/api/blogposts
 
@@ -58,55 +58,92 @@ router.post("/", async (req, res) => {
       post_date: new Date(),
       user_id: req.body.user_id,
     });
+    if (req.body.post_topic_id.length) {
+      const blogPostTopicIdArr = req.body.post_topic_id.map((topic_id) => {
+        return {
+          blog_post_id: newPost.id,
+          topic_id,
+        };
+      });
+      await BlogPostTopic.bulkCreate(blogPostTopicIdArr);
+    }
     res.status(200).json(newPost);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
-// router.post("/", async (req, res) => {
-//   try {
-//     Topic.findOne({ where: { topic_name: req.body.topic }}).then(async (data) => {
-//         const topicID = data.id;
-//         console.log('\n\ndata:' + data.id);
-//         const newPost = await BlogPost.create({
-//           post_topic_id: topicID,
-//           post_title: req.body.post_title,
-//           post_text: req.body.post_text,
-//           post_date: new Date(),
-//           user_id: req.body.user_id,
-//         });
-//         res.status(200).json(newPost);
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
 
-// edit a previous post
+// UPDATE a blog post
 router.put("/:id", (req, res) => {
   BlogPost.update(req.body, {
     where: {
       id: req.params.id,
     },
   })
-    .then((updatedPost) => res.json(updatedPost))
+    .then((updatedPost) => {
+      if (req.body.topicIds && req.body.topicIds.length) {
+        BlogPostTopic.findAll({ where: { post_id: req.params.id } }).then(
+          (blogPostTopics) => {
+            const blogPostTopicIds = blogPostTopics.map(
+              ({ topic_id }) => topic_id
+            );
+            const newBlogPostTopics = req.body.topicIds
+              .filter((topic_id) => !blogPostTopicIds.includes(topic_id))
+              .map((topic_id) => {
+                return {
+                  post_id: req.params.id,
+                  topic_id,
+                };
+              });
+            const blogPostTopicsToRemove = blogPostTopics
+              .filter(({ topic_id }) => !req.body.topicIds.includes(topic_id))
+              .map(({ id }) => id);
+
+            return Promise.all([
+              BlogPostTopic.destroy({ where: { id: blogPostTopicsToRemove } }),
+              BlogPostTopic.bulkCreate(newBlogPostTopics),
+            ]);
+          }
+        );
+      }
+
+      return res.json(updatedPost);
+    })
     .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
+      res.json(err);
     });
 });
+
+// // edit a previous post
+// router.put("/:id", (req, res) => {
+//   BlogPost.update(req.body, {
+//     where: {
+//       id: req.params.id,
+//     },
+//   })
+//     .then((updatedPost) => res.json(updatedPost))
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 // DELETE a previous post
 router.delete("/:id", async (req, res) => {
   try {
-    await BlogPost.destroy({
+    const postData = await BlogPost.destroy({
       where: {
         id: req.params.id,
       },
     });
-    res.status(200).json({ message: "Post deleted" });
+
+    if (!postData) {
+      res.status(404).json({ message: "No post with this id" });
+      return;
+    }
+
+    res.status(200).json(postData);
   } catch (err) {
     res.status(500).json(err);
   }
