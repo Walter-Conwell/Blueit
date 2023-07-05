@@ -29,19 +29,11 @@ Topic.init(
     hooks: {
       async beforeCreate(newTopicData) {
         newTopicData.topic_name = await newTopicData.topic_name.toLowerCase();
-        Array.from(newTopicData.topic_name).forEach((char) => {
-          if (char === " ") {
-            newTopicData.topic_name = newTopicData.topic_name.replace(
-              char,
-              "_"
-            );
-          }
-        });
         // Array.from(newTopicData.topic_name).forEach((char) => {
-        //   if (char === ", ") {
+        //   if (char === " ") {
         //     newTopicData.topic_name = newTopicData.topic_name.replace(
         //       char,
-        //       ","
+        //       "_"
         //     );
         //   }
         // });
