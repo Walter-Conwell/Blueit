@@ -11,6 +11,7 @@ router.post("/", async (req, res) => {
     console.log(typeof topics);
     var newTopics = [];
     var existingTopics = [];
+    var returnedTopics = [];
 
     for (var topicName of topics) {
       Array.from(topicName).forEach((char) => {
@@ -18,7 +19,7 @@ router.post("/", async (req, res) => {
           topicName = topicName.replace(char, "_");
         }
       });
-      const topicExists = await Topic.findOne({
+      var topicExists = await Topic.findOne({
         where: {
           topic_name: topicName,
         },
@@ -27,10 +28,12 @@ router.post("/", async (req, res) => {
       if (!topicExists) {
         const newTopic = await Topic.create({
           topic_name: topicName,
+          // topic_is_new: true,
         });
-        newTopics.push(newTopic);
-      } else if (existingTopics.includes(topicName)) {
-        existingTopics.push(topicName);
+        returnedTopics.push(newTopic);
+      } else {
+        // topicExists.topic_is_new = false;
+        returnedTopics.push(topicExists);
       }
       console.log(`line 31 ${topicName}`);
     }
@@ -38,16 +41,11 @@ router.post("/", async (req, res) => {
     // console.log(newTopics);
     // console.log(existingTopics);
 
-    if (newTopics.length > 0) {
-      res.status(200).json({
-        newTopics,
-        existingTopics,
-      });
-    } else {
-      res.status(200).json({
-        existingTopics,
-      });
-    }
+    res.status(200).json({
+      // newTopics,
+      // existingTopics,
+      returnedTopics,
+    });
   } catch (err) {
     console.log(err);
     res.status(400).json(err);
