@@ -1,32 +1,33 @@
 {{! profile button }}
-<div id="profileBtn" class="profileBtn">
-  <div id="profileModal" class="profileModal">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content centered">
-        <div class="modal-header text-center">
-          <h4 class="modal-title w-100 font-weight-bold">Profile</h4>
-          <button
-            type="button"
-            id="profileClose"
-            class="close"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body mx-3">
-          <ul>
-            {{! I think these links should take the user to respective pages}}
-            <li><a href="/settings">Settings</a></li>
-            <li><a href="/bio">Bio</a></li>
-            <li><a href="/favorites">Favorites</a></li>
-          </ul>
-        </div>
-        <div class="modal-footer d-flex justify-content-center">
-          <button id="bioBtn" class="bioBtn">Bio</button>
-        </div>
+{{!-- commented out below line. it was causing the modal to be placed at top left of screen --}}
+{{! <div id="profileBtn" class="profileBtn"> }}
+<div id="profileModal" class="profileModal" style="display: none;">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content centered">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Profile</h4>
+        <button
+          type="button"
+          id="profileClose"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <ul>
+          {{! I think these links should take the user to respective pages}}
+          <li><a href="/settings">Settings</a></li>
+          <li><a href="/bio">Bio</a></li>
+          <li><a href="/favorites">Favorites</a></li>
+        </ul>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button id="bioBtn" class="bioBtn">Bio</button>
       </div>
     </div>
   </div>
 </div>
+{{! </div> }}

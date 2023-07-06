@@ -47,7 +47,7 @@
   color: white;
   font-size: 19px;
 }
-
+/* profileModal does NOT belong here. */
 #modalLoginBtn,
 #modalSignUpBtn {
   display: inline-block;
@@ -254,7 +254,7 @@ body.dark-theme {
 .dark-theme #themeToggleTestBtn,
 .dark-theme #blogWriteBtn,
 .dark-theme #saveBlogBtn,
-#.dark-theme #profileBtn {
+.dark-theme #profileBtn {
   background-color: #252525;
   color: #505050;
 }
@@ -323,7 +323,8 @@ body.madelines-theme {
 .madelines-theme #signUpBtn,
 .madelines-theme #themeToggleTestBtn,
 .madelines-theme #blogWriteBtn,
-.madelines-theme #saveBlogBtn {
+.madelines-theme #saveBlogBtn,
+.madelines-theme #profileBtn {
   background-color: #252525;
   color: #505050;
 }
