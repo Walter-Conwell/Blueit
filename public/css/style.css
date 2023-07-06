@@ -22,26 +22,30 @@
 #blogWriteBtn,
 #saveBlogBtn,
 #profileBtn {
-    display: inline-block;
-    outline: none;
-    cursor: pointer;
-    font-weight: 600;
-    border-radius: 3px;
-    padding: 12px 24px;
-    border: 0;
-    color: #fff;
-    background: #3372ff;
-    margin-left: 1%;
-    margin-right: 1%;
-    line-height: 1.15;
-    font-size: 16px;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 3px;
+  padding: 12px 24px;
+  border: 0;
+  color: #fff;
+  background: #3372ff;
+  margin-left: 1%;
+  margin-right: 1%;
+  line-height: 1.15;
+  font-size: 16px;
 }
 
-#darkThemeBtn, #madelinesThemeBtn, #willsThemeBtn, #waltersThemeBtn, #kylesThemeBtn {
-    border: none;
-    background-color: transparent;
-    color: white;
-    font-size: 19px;
+#darkThemeBtn,
+#madelinesThemeBtn,
+#willsThemeBtn,
+#waltersThemeBtn,
+#kylesThemeBtn {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 19px;
 }
 
 #modalLoginBtn,
@@ -81,9 +85,9 @@
 #blogWriteBtn:hover,
 #saveBlogBtn:hover,
 #profileBtn:hover {
-    background-color: #205cdd;
-    transition: all .2s ease;
-    box-shadow: 0 0 0 0 #dedede;
+  background-color: #205cdd;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 0 0 #dedede;
 }
 
 .close {
@@ -143,26 +147,26 @@ a:hover {
 }
 
 .editBar {
-    background-color: #ffffff93;
-    box-shadow: 2px 2px 4px #d7d7d7;
-    margin-top: 2%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-    font-size: 16px;
-    padding: 1.5%;
+  background-color: #ffffff93;
+  box-shadow: 2px 2px 4px #d7d7d7;
+  margin-top: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  font-size: 16px;
+  padding: 1.5%;
 }
 
 #editorContainer {
-    margin-top: 3%;
-    margin-left: auto;
-    margin-right: auto;
-    height: 80%;
-    width: 80%;
+  margin-top: 3%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 80%;
+  width: 80%;
 }
 
 #editor {
-    height: 375px;
+  height: 375px;
 }
 
 .sidebar {
@@ -174,11 +178,11 @@ a:hover {
 }
 
 .sidebarContent {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 19px;
-    line-height: 40pt;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 19px;
+  line-height: 40pt;
 }
 
 .content {
@@ -234,9 +238,9 @@ body.dark-theme {
 
 .dark-theme .blog,
 .dark-theme .editBar {
-    background-color: #33333399;
-    box-shadow: 2px 2px 5px #161616e4;
-    color: #767676;
+  background-color: #33333399;
+  box-shadow: 2px 2px 5px #161616e4;
+  color: #767676;
 }
 
 .dark-theme .navigation {
@@ -251,8 +255,8 @@ body.dark-theme {
 .dark-theme #blogWriteBtn,
 .dark-theme #saveBlogBtn,
 #.dark-theme #profileBtn {
-    background-color: #252525;
-    color: #505050;
+  background-color: #252525;
+  color: #505050;
 }
 
 .dark-theme #searchButton {
@@ -267,9 +271,9 @@ body.dark-theme {
 .dark-theme #blogWriteBtn:hover,
 .dark-theme #saveBlogBtn:hover,
 .dark-theme #profileBtn:hover {
-    color: #9d9d9d;
-    background-color: #222222;
-    box-shadow: 2px 2px 5px #171717bd;
+  color: #9d9d9d;
+  background-color: #222222;
+  box-shadow: 2px 2px 5px #171717bd;
 }
 
 /* ------------------ ANDRICK'S THEME ---------------- 
@@ -283,36 +287,36 @@ body.madelines-theme {
 /* ------------------ MADELINE'S THEME ---------------- */
 
 body.madelines-theme {
-    background: linear-gradient(#5f5f5f, #444444);
-    background-attachment: fixed;
-    color: #ffffff;
+  background: linear-gradient(#5f5f5f, #444444);
+  background-attachment: fixed;
+  color: #ffffff;
 }
 
 .madelines-theme header {
-    background-color: #000000;
-    color: #323232b3;
+  background-color: #000000;
+  color: #323232b3;
 }
 
 .madelines-theme .sidebar {
-    background-color: #33333399;
-    box-shadow: 2px 2px 5px #161616e4;
+  background-color: #33333399;
+  box-shadow: 2px 2px 5px #161616e4;
 }
 
 .madelines-theme .sidebarContent {
-    color: #767676;
+  color: #767676;
 }
 
 .madelines-theme .blog,
 .madelines-theme .editBar {
-    background-color: #33333399;
-    box-shadow: 2px 2px 5px #161616e4;
-    color: #767676;
+  background-color: #33333399;
+  box-shadow: 2px 2px 5px #161616e4;
+  color: #767676;
 }
 
 .madelines-theme .navigation {
-    background-color: #1f1f1f;
-    box-shadow: 2px 2px 4px #2b2b2b;
-    color: #767676;
+  background-color: #1f1f1f;
+  box-shadow: 2px 2px 4px #2b2b2b;
+  color: #767676;
 }
 
 .madelines-theme #loginBtn,
@@ -320,13 +324,13 @@ body.madelines-theme {
 .madelines-theme #themeToggleTestBtn,
 .madelines-theme #blogWriteBtn,
 .madelines-theme #saveBlogBtn {
-    background-color: #252525;
-    color: #505050;
+  background-color: #252525;
+  color: #505050;
 }
 
 .madelines-theme #searchButton {
-    background-color: #313131;
-    color: #656565;
+  background-color: #313131;
+  color: #656565;
 }
 
 .madelines-theme #loginBtn:hover,
@@ -335,31 +339,31 @@ body.madelines-theme {
 .madelines-theme #searchButton:hover,
 .madelines-theme #blogWriteBtn:hover,
 .madelines-theme #saveBlogBtn:hover {
-    color: #9d9d9d;
-    background-color: #222222;
-    box-shadow: 2px 2px 5px #171717bd;
+  color: #9d9d9d;
+  background-color: #222222;
+  box-shadow: 2px 2px 5px #171717bd;
 }
 
 /* ------------------ WILL'S THEME ---------------- */
 
 body.wills-theme {
-    background: linear-gradient(#50be4a, #115010);
-    background-attachment: fixed;
-    color: #ffffff;
+  background: linear-gradient(#50be4a, #115010);
+  background-attachment: fixed;
+  color: #ffffff;
 }
 
 /* ------------------ WALTER'S THEME ---------------- */
 
 body.walters-theme {
-    background: linear-gradient(#d22fbf, #570d53);
-    background-attachment: fixed;
-    color: #ffffff;
+  background: linear-gradient(#d22fbf, #570d53);
+  background-attachment: fixed;
+  color: #ffffff;
 }
 
 /* ------------------ KYLE'S THEME ---------------- */
 
 body.kyles-theme {
-    background: linear-gradient(#43bed6, #0b7fc2);
-    background-attachment: fixed;
-    color: #ffffff;
+  background: linear-gradient(#43bed6, #0b7fc2);
+  background-attachment: fixed;
+  color: #ffffff;
 }
