@@ -48,6 +48,55 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+//full blog post route
+router.post("/full", async (req, res) => {
+  try {
+    const newPost = await BlogPost.create({
+      post_title: req.body.post_title,
+      post_text: req.body.post_text,
+      user_id: req.session.user_id,
+      // topics: req.body.topics,
+    });
+
+    var topics = req.body.topics.split(",");
+    topics = topics.map((topic) => topic.trim());
+    var returnedTopics = [];
+    for (var topicName of topics) {
+      Array.from(topicName).forEach((char) => {
+        if (char === " ") {
+          topicName = topicName.replace(char, "_");
+        }
+      });
+      var topicExists = await Topic.findOne({
+        where: {
+          topic_name: topicName,
+        },
+      });
+
+      if (!topicExists) {
+        const newTopic = await Topic.create({
+          topic_name: topicName,
+        });
+        returnedTopics.push(newTopic);
+      } else {
+        returnedTopics.push(topicExists);
+      }
+    }
+    //returned topics is array of topic IDs
+    //take id from newPost and array of topiIDs and create entries in blogposttopic table
+    for (topic of returnedTopics) {
+      await BlogPostTopic.create({
+        blog_post_id: newPost.id,
+        topic_id: topic.id,
+      });
+    }
+    res.status(200).json(newPost);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 // POST a blog post
 router.post("/", async (req, res) => {
   try {
@@ -55,7 +104,7 @@ router.post("/", async (req, res) => {
       // post_topic_id: req.body.post_topic_id,
       post_title: req.body.post_title,
       post_text: req.body.post_text,
-      post_date: new Date(),
+      // post_date: new Date(),
       user_id: req.session.user_id,
     });
     // if (req.body.post_topic_id.length) {
