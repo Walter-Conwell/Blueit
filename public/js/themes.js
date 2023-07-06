@@ -56,3 +56,6 @@ blogWriteBtn.addEventListener("click", navigateToBlogWrite);
 function navigateToBlogWrite() {
   window.location.href = "/blogwrite";
 }
+
+
+//cat theme
