@@ -1,9 +1,12 @@
 const router = require("express").Router();
-const { Topic } = require("../../models");
+const { Topic, BlogPost, BlogPostTopic } = require("../../models");
+const withAuth = require("../../utils/withAuth");
 
 //gets list of all topics
 router.get("/", (req, res) => {
-  Topic.findAll()
+  Topic.findAll({
+    include: [{ model: BlogPost, as: "blog_posts" }],
+  })
     .then((dbTopicData) => res.json(dbTopicData))
     .catch((err) => {
       console.log(err);
@@ -14,7 +17,9 @@ router.get("/", (req, res) => {
 //gets a single topic by its ID
 router.get("/:id", async (req, res) => {
   try {
-    const topicData = await Topic.findByPk(req.params.id);
+    const topicData = await Topic.findByPk(req.params.id, {
+      include: [{ model: BlogPost, as: "blog_posts" }],
+    });
     if (!topicData) {
       res.status(404).json({ message: "No topic with this id" });
       return;
@@ -30,7 +35,7 @@ router.get("/:id", async (req, res) => {
 //new entries are added to the database, and entries that already exist are returned with their IDs
 //This allows the front end to not have to worry about whether or not a topic already exists
 //and then allows the front end to create a new blog post with the correct topic IDs attached
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
     // console.log(`In post route. Topic is: ${req.body.topic_name}`);
     var topics = req.body.topic_name.split(",");
@@ -74,7 +79,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", withAuth, async (req, res) => {
   // update a topic's name by its `id` value
   try {
     const topicData = await Topic.update(
@@ -97,7 +102,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
   try {
     const topicData = await Topic.destroy({
       where: {

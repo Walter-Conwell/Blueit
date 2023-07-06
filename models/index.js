@@ -14,11 +14,13 @@ BlogPost.belongsTo(User, {
 
 BlogPost.belongsToMany(Topic, {
   through: "blog_post_topic",
+  as: "topics",
   foreignKey: "blog_post_id",
 });
 
 Topic.belongsToMany(BlogPost, {
   through: "blog_post_topic",
+  as: "blog_posts",
   foreignKey: "topic_id",
 });
 
