@@ -4,7 +4,7 @@ const { BlogPost, Topic, BlogPostTopic } = require("../../models");
 //localhost:3001/api/blogposts
 
 // GET all posts
-http: router.get("/", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const posts = await BlogPost.findAll();
     res.status(200).json(posts);

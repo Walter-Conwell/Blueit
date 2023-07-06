@@ -29,7 +29,6 @@ User.init(
       allowNull: false,
       validator: {
         isAlphanumeric: true,
-        len: [8],
       },
     },
     username: {
@@ -41,9 +40,10 @@ User.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    photo_file: {
-      type: DataTypes.STRING,
-    },
+    // future development - photo file
+    // photo_file: {
+    //   type: DataTypes.STRING,
+    // },
     bio: {
       type: DataTypes.TEXT,
     },
