@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { User } = require("../../models");
-const {withAuth} = require("../../utils/withAuth");
+const withAuth = require("../../utils/withAuth");
 
 // Already have route to get all users
 router.get("/", (req, res) => {});
@@ -19,16 +19,10 @@ router.post("/", (req, res) => {});
 
 // authorize route I think
 router.put("/:id", withAuth, async (req, res) => {
-    User.update(req.body, {
-        where: {
-            id: req.params.id,
-        },
-        })
-        .then((updatedUser) => res.json(updatedUser))
-        .catch((err) => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+    await User.update(req.body, { where: { id: req.params.id }})
+    .catch((err) => {
+        res.status(500).json(err);
+    });
 });
 
 // Delete an existing user
