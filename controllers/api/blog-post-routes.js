@@ -1,12 +1,15 @@
 const router = require("express").Router();
 const { BlogPost, Topic, BlogPostTopic } = require("../../models");
+const withAuth = require("../../utils/withAuth");
 
 //localhost:3001/api/blogposts
 
 // GET all posts
 router.get("/", async (req, res) => {
   try {
-    const posts = await BlogPost.findAll();
+    const posts = await BlogPost.findAll({
+      include: [{ model: Topic, as: "topics" }],
+    });
     res.status(200).json(posts);
   } catch (err) {
     res.status(500).json(err);
@@ -37,7 +40,9 @@ router.get("/topic/:topic", async (req, res) => {
 // GET one post
 router.get("/:id", async (req, res) => {
   try {
-    const postData = await BlogPost.findByPk(req.params.id);
+    const postData = await BlogPost.findByPk(req.params.id, {
+      include: [{ model: Topic, as: "topics" }],
+    });
     if (!postData) {
       res.status(404).json({ message: "No post with this id" });
       return;
@@ -49,7 +54,7 @@ router.get("/:id", async (req, res) => {
 });
 
 //full blog post route
-router.post("/full", async (req, res) => {
+router.post("/full", withAuth, async (req, res) => {
   try {
     const newPost = await BlogPost.create({
       post_title: req.body.post_title,
@@ -98,7 +103,7 @@ router.post("/full", async (req, res) => {
 });
 
 // POST a blog post
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
     const newPost = await BlogPost.create({
       // post_topic_id: req.body.post_topic_id,
@@ -124,7 +129,7 @@ router.post("/", async (req, res) => {
 });
 
 // UPDATE a blog post
-router.put("/:id", (req, res) => {
+router.put("/:id", withAuth, (req, res) => {
   BlogPost.update(req.body, {
     where: {
       id: req.params.id,
@@ -179,7 +184,7 @@ router.put("/:id", (req, res) => {
 // });
 
 // DELETE a previous post
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
   try {
     const postData = await BlogPost.destroy({
       where: {
