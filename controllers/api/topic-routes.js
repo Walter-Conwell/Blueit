@@ -32,9 +32,11 @@ router.get("/:id", async (req, res) => {
 //and then allows the front end to create a new blog post with the correct topic IDs attached
 router.post("/", async (req, res) => {
   try {
-    var topics = req.body.topic_name.split(", ");
-    console.log(`line 10 ${topics}}`);
-    console.log(typeof topics);
+    // console.log(`In post route. Topic is: ${req.body.topic_name}`);
+    var topics = req.body.topic_name.split(",");
+    topics = topics.map((topic) => topic.trim());
+    // console.log(`line 10 ${topics}}`);
+    // console.log(typeof topics);
 
     var returnedTopics = [];
 
@@ -60,7 +62,7 @@ router.post("/", async (req, res) => {
         // topicExists.topic_is_new = false;
         returnedTopics.push(topicExists);
       }
-      console.log(`line 31 ${topicName}`);
+      // console.log(`line 31 ${topicName}`);
     }
 
     res.status(200).json({
