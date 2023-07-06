@@ -29,7 +29,7 @@ var quill = new Quill("#editor", {
 
 //This is the listener for the save button
 async function getBlogContent() {
-  // console.log(req.session.user_id);
+  console.log("clicked");
   var blogTitle = document.getElementById("blogTitle").value;
   var blogTopic = document.getElementById("blogTopic").value;
   var blogContent = quill.root.innerHTML;
@@ -40,7 +40,9 @@ async function getBlogContent() {
     content: blogContent,
   };
 
-  const blogPostID = await saveBlogContent(blogPost);
+  await saveBlogContent(blogPost);
+
+  location.replace("/");
 
   // const topicIDs = await saveTopicsAndRetrieveIDs(blogPost);
   // console.log(`Blog post ID is ${blogPostID} and topic IDs are ${topicIDs}`);
@@ -55,7 +57,7 @@ async function getBlogContent() {
 
 //this actually saves the blog post content to SQL database and returns the id of the newly created post
 async function saveBlogContent(blogPost) {
-  const response = await fetch("/api/blogposts/full", {
+  await fetch("/api/blogposts/full", {
     method: "POST",
     body: JSON.stringify({
       post_title: blogPost.title,
@@ -67,8 +69,8 @@ async function saveBlogContent(blogPost) {
       "Content-Type": "application/json",
     },
   });
-  const returnedBlogPostData = await response.json();
-  return returnedBlogPostData.id;
+  // const returnedBlogPostData = await response.json();
+  // return returnedBlogPostData.id;
 }
 
 //this function might need to return the topic IDs back out to be used for the through table
