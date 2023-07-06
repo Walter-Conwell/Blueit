@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 });
 
 // GET all posts in a topic
-router.get("/:topic", async (req, res) => {
+router.get("/topic/:topic", async (req, res) => {
   try {
     // Read the 3 lines below very carefully
     const posts = await BlogPost.findAll({
