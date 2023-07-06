@@ -201,9 +201,7 @@ a:hover {
     font-weight: bold;
 }
 
-
-/* ------------------- DARK THEME ------------------- */
-
+/* ------------------ DARK THEME ---------------- */
 
 body.dark-theme {
     background: linear-gradient(#000000, #272727);
@@ -258,6 +256,68 @@ body.dark-theme {
 .dark-theme #searchButton:hover,
 .dark-theme #blogWriteBtn:hover,
 .dark-theme #saveBlogBtn:hover {
+    color: #9d9d9d;
+    background-color: #222222;
+    box-shadow: 2px 2px 5px #171717bd;
+}
+
+
+/* ------------------ MADELINES THEME ---------------- 
+(dev purposes */
+
+body.madelines-theme {
+    background: linear-gradient(#ff6666, #b52020);
+    background-attachment: fixed;
+    color: #ffffff;
+}
+
+.madelines-theme header {
+    background-color: #000000;
+    color: #323232b3;
+}
+
+.madelines-theme .sidebar {
+    background-color: #33333399;
+    box-shadow: 2px 2px 5px #161616e4;
+}
+
+.madelines-theme .sidebarContent {
+    color: #767676;
+}
+
+.madelines-theme .blog,
+.madelines-theme .editBar {
+    background-color: #33333399;
+    box-shadow: 2px 2px 5px #161616e4;
+    color: #767676;
+}
+
+.madelines-theme .navigation {
+    background-color: #1f1f1f;
+    box-shadow: 2px 2px 4px #2b2b2b;
+    color: #767676;
+}
+
+.madelines-theme #loginBtn,
+.madelines-theme #signUpBtn,
+.madelines-theme #themeToggleTestBtn,
+.madelines-theme #blogWriteBtn,
+.madelines-theme #saveBlogBtn {
+    background-color: #252525;
+    color: #505050;
+}
+
+.madelines-theme #searchButton {
+    background-color: #313131;
+    color: #656565;
+}
+
+.madelines-theme #loginBtn:hover,
+.madelines-theme #signUpBtn:hover,
+.madelines-theme #themeToggleTestBtn:hover,
+.madelines-theme #searchButton:hover,
+.madelines-theme #blogWriteBtn:hover,
+.madelines-theme #saveBlogBtn:hover {
     color: #9d9d9d;
     background-color: #222222;
     box-shadow: 2px 2px 5px #171717bd;

@@ -26,3 +26,21 @@ var quill = new Quill("#editor", {
   },
   theme: "snow",
 });
+
+function getBlogContent() {
+  var blogTitle = document.getElementById("blogTitle").value;
+  var blogTopic = document.getElementById("blogTopic").value;
+  var blogContent = quill.root.innerHTML;
+
+  var blogPost = {
+    title: blogTitle,
+    topic: blogTopic,
+    content: blogContent,
+  };
+
+  // do something with blog post data
+  console.log(blogPost);
+}
+
+var saveBtn = document.getElementById("saveBlogBtn");
+saveBtn.addEventListener("click", getBlogContent);
