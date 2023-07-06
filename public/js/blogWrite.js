@@ -1,5 +1,5 @@
+// const { BlogPostTopic } = require("../../models");
 // initializing Quill
-
 var toolbarOptions = [
   ["bold", "italic", "underline", "strike"],
   ["blockquote", "code-block", "image"],
@@ -41,8 +41,10 @@ async function getBlogContent() {
   };
 
   const blogPostID = await saveBlogContent(blogPost);
-  const topicIDs = await saveTopicsAndRetrieveIDs(blogPost);
-  console.log(`Blog post ID is ${blogPostID} and topic IDs are ${topicIDs}`);
+
+  // const topicIDs = await saveTopicsAndRetrieveIDs(blogPost);
+  // console.log(`Blog post ID is ${blogPostID} and topic IDs are ${topicIDs}`);
+  // blogPostTopicSave(blogPostID, topicIDs);
 
   //makeTheBlogPostTopicTableentry(blogPostID, topicIDs); Not the final method name
   //We need to create the post route for making the blog post topic table entry
@@ -53,11 +55,12 @@ async function getBlogContent() {
 
 //this actually saves the blog post content to SQL database and returns the id of the newly created post
 async function saveBlogContent(blogPost) {
-  const response = await fetch("/api/blogposts", {
+  const response = await fetch("/api/blogposts/full", {
     method: "POST",
     body: JSON.stringify({
       post_title: blogPost.title,
       post_text: blogPost.content,
+      topics: blogPost.topic,
       // user_id: req.session.user_id, //This is just a placeholder for now
     }),
     headers: {
@@ -85,6 +88,17 @@ async function saveTopicsAndRetrieveIDs(blogPost) {
   // console.log(topicIDs);
   return topicIDs;
 }
+
+// async function blogPostTopicSave(blogPostID, topicIDs) {
+//   //loops through the topicID array to create a new entry for each topic ID
+//   for (topicID of topicIDs) {
+//     console.log(`Blog post ID is ${blogPostID} and topic ID is ${topicID}`);
+//     var newBlogPostTopic = await BlogPostTopic.create({
+//       blog_post_id: blogPostID,
+//       topic_id: topicID,
+//     });
+//   }
+// }
 
 var saveBtn = document.getElementById("saveBlogBtn");
 saveBtn.addEventListener("click", getBlogContent);
