@@ -28,7 +28,7 @@ var quill = new Quill("#editor", {
 });
 
 //This is the listener for the save button
-function getBlogContent() {
+async function getBlogContent() {
   // console.log(req.session.user_id);
   var blogTitle = document.getElementById("blogTitle").value;
   var blogTopic = document.getElementById("blogTopic").value;
@@ -40,13 +40,18 @@ function getBlogContent() {
     content: blogContent,
   };
 
-  saveBlogContent(blogPost);
+  const blogPostID = await saveBlogContent(blogPost);
+  const topicIDs = await saveTopicsAndRetrieveIDs(blogPost);
+  console.log(`Blog post ID is ${blogPostID} and topic IDs are ${topicIDs}`);
+
+  //makeTheBlogPostTopicTableentry(blogPostID, topicIDs); Not the final method name
+  //We need to create the post route for making the blog post topic table entry
 
   // do something with blog post data
-  console.log(blogPost);
+  // console.log(blogPost);
 }
 
-//this actually saves the content to SQL database
+//this actually saves the blog post content to SQL database and returns the id of the newly created post
 async function saveBlogContent(blogPost) {
   const response = await fetch("/api/blogposts", {
     method: "POST",
@@ -59,6 +64,26 @@ async function saveBlogContent(blogPost) {
       "Content-Type": "application/json",
     },
   });
+  const returnedBlogPostData = await response.json();
+  return returnedBlogPostData.id;
+}
+
+//this function might need to return the topic IDs back out to be used for the through table
+async function saveTopicsAndRetrieveIDs(blogPost) {
+  // console.log(blogPost.topic);
+  const response = await fetch("/api/topics", {
+    method: "POST",
+    body: JSON.stringify({
+      topic_name: blogPost.topic,
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const returnedTopicData = await response.json();
+  var topicIDs = returnedTopicData.returnedTopics.map((topic) => topic.id);
+  // console.log(topicIDs);
+  return topicIDs;
 }
 
 var saveBtn = document.getElementById("saveBlogBtn");
