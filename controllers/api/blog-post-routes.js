@@ -52,21 +52,21 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const newPost = await BlogPost.create({
-      post_topic_id: req.body.post_topic_id,
+      // post_topic_id: req.body.post_topic_id,
       post_title: req.body.post_title,
       post_text: req.body.post_text,
       post_date: new Date(),
-      user_id: req.body.user_id,
+      user_id: req.session.user_id,
     });
-    if (req.body.post_topic_id.length) {
-      const blogPostTopicIdArr = req.body.post_topic_id.map((topic_id) => {
-        return {
-          blog_post_id: newPost.id,
-          topic_id,
-        };
-      });
-      await BlogPostTopic.bulkCreate(blogPostTopicIdArr);
-    }
+    // if (req.body.post_topic_id.length) {
+    //   const blogPostTopicIdArr = req.body.post_topic_id.map((topic_id) => {
+    //     return {
+    //       blog_post_id: newPost.id,
+    //       topic_id,
+    //     };
+    //   });
+    //   await BlogPostTopic.bulkCreate(blogPostTopicIdArr);
+    // }
     res.status(200).json(newPost);
   } catch (err) {
     console.log(err);
