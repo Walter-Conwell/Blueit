@@ -30,6 +30,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(require("./controllers"));
+app.use("/public", express.static(path.join(__dirname, "public")));
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
