@@ -16,12 +16,13 @@ var classes = [
 ];
 var currentClassIndex = 0;
 
-themeToggleBtn.addEventListener("click", toggleClass);
-darkThemeBtn.addEventListener("click", loadDarkTheme);
-madelinesThemeBtn.addEventListener("click", loadMadelinesTheme);
-willsThemeBtn.addEventListener("click", loadWillsTheme);
-waltersThemeBtn.addEventListener("click", loadWaltersTheme);
-kylesThemeBtn.addEventListener("click", loadKylesTheme);
+themeToggleBtn && themeToggleBtn.addEventListener("click", toggleClass);
+darkThemeBtn && darkThemeBtn.addEventListener("click", loadDarkTheme);
+madelinesThemeBtn &&
+  madelinesThemeBtn.addEventListener("click", loadMadelinesTheme);
+willsThemeBtn && willsThemeBtn.addEventListener("click", loadWillsTheme);
+waltersThemeBtn && waltersThemeBtn.addEventListener("click", loadWaltersTheme);
+kylesThemeBtn && kylesThemeBtn.addEventListener("click", loadKylesTheme);
 
 function toggleClass() {
   currentClassIndex = (currentClassIndex + 1) % classes.length;
@@ -51,11 +52,10 @@ function loadKylesTheme() {
 
 // loads "blog write" page from landing page
 const blogWriteBtn = document.getElementById("blogWriteBtn");
-blogWriteBtn.addEventListener("click", navigateToBlogWrite);
+blogWriteBtn && blogWriteBtn.addEventListener("click", navigateToBlogWrite);
 
 function navigateToBlogWrite() {
   window.location.href = "/blogwrite";
 }
-
 
 //cat theme

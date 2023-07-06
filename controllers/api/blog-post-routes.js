@@ -90,7 +90,7 @@ router.post("/full", async (req, res) => {
         topic_id: topic.id,
       });
     }
-    res.status(200).json(newPost);
+    return res.redirect("/");
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
