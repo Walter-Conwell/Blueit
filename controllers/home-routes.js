@@ -26,7 +26,7 @@ router.get("/andrick", async (req, res) => {
       },
     });
     const posts = postData.map((post) => post.get({ plain: true }));
-    res.render("all", posts);
+    res.render("all", { posts, loggedIn: req.session.loggedIn });
   } catch (err) {}
 });
 

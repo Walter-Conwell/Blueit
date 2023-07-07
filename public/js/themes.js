@@ -49,9 +49,8 @@ function loadMadelinesTheme() {
 
 function loadAndricksTheme() {
   body.className = "andricks-theme";
+  location.replace("/andrick");
   updateHeroImageVisibility("andricks-theme");
-
-  // location.replace("/andrick");
 }
 
 function loadWillsTheme() {
