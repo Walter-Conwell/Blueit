@@ -161,6 +161,8 @@ a:hover {
 .form-control {
   border: none !important;
   box-shadow: none !important;
+  background-color: #ededed;
+  color: #929292;
 }
 
 .sidebar {
