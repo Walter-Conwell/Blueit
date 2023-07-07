@@ -74,12 +74,13 @@ router.post("/login", async (req, res) => {
 
 // Logout route
 router.post("/logout", (req, res) => {
+  // console.log("Entered logout route");
   if (req.session.loggedIn) {
     req.session.destroy(() => {
-      res.status(200).json({ message: "You are now logged out!" });
+      res.status(204).end();
     });
   } else {
-    res.status(400).json({ message: "You are not logged in!" });
+    res.status(404).end();
   }
 });
 
