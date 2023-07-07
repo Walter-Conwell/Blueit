@@ -4,9 +4,12 @@ const { BlogPost } = require("../models");
 router.get("/", async (req, res) => {
   // res.render("all", { loggedIn: req.session.loggedIn });
   try {
-    const postData = await BlogPost.findAll({});
+    const postData = await BlogPost.findAll({
+      limit: 10,
+      order: [["created_at", "DESC"]],
+    });
     var posts = postData.map((post) => post.get({ plain: true }));
-    posts = posts.slice(0, 3);
+    // posts = posts.slice(0, 3);
     console.log(posts);
     res.render("all", { posts, loggedIn: req.session.loggedIn });
   } catch (err) {
@@ -21,6 +24,7 @@ router.get("/blogwrite", async (req, res) => {
 router.get("/andrick", async (req, res) => {
   try {
     const postData = await BlogPost.findAll({
+      order: [["created_at", "DESC"]],
       where: {
         user_id: 5,
       },
@@ -35,6 +39,7 @@ router.get("/andrick", async (req, res) => {
 router.get("/madeline", async (req, res) => {
   try {
     const postData = await BlogPost.findAll({
+      order: [["created_at", "DESC"]],
       where: {
         user_id: 1,
       },
@@ -49,6 +54,7 @@ router.get("/madeline", async (req, res) => {
 router.get("/will", async (req, res) => {
   try {
     const postData = await BlogPost.findAll({
+      order: [["created_at", "DESC"]],
       where: {
         user_id: 2,
       },
@@ -63,6 +69,7 @@ router.get("/will", async (req, res) => {
 router.get("/walter", async (req, res) => {
   try {
     const postData = await BlogPost.findAll({
+      order: [["created_at", "DESC"]],
       where: {
         user_id: 3,
       },
@@ -77,6 +84,7 @@ router.get("/walter", async (req, res) => {
 router.get("/kyle", async (req, res) => {
   try {
     const postData = await BlogPost.findAll({
+      order: [["created_at", "DESC"]],
       where: {
         user_id: 4,
       },
