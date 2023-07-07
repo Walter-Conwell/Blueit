@@ -106,7 +106,7 @@
 }
 
 body {
-  background: linear-gradient(#e1e1e1, #ffffff);
+  background: linear-gradient(#dddddd, #ffffff);
   background-attachment: fixed;
   height: 100%;
   color: #000000;
@@ -118,7 +118,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #dadada;
+  background-color: transparent;
   padding: 1%;
 }
 
@@ -127,6 +127,8 @@ header {
 }
 
 h1 {
+  color: #ffffff;
+  text-shadow: 1px 1px 3px #a8a8a8;
   padding: 1%;
 }
 
@@ -186,7 +188,7 @@ a:hover {
 .sidebarBtns {
   border: none;
   background-color: transparent;
-  color: #1e1e1e;
+  color: #949494;
 }
 
 .sidebarBtns:hover {
@@ -309,8 +311,13 @@ body.andricks-theme {
   background-color: transparent;
 }
 
+.andricks-theme #headerLogo {
+  opacity: 0%;
+}
+
 .andricks-theme h1 {
-  color: #b5d8c7;
+  color: #395b4d;
+  text-shadow: 1px 1px 3px #041d10;
   text-align: center;
 }
 
@@ -508,6 +515,8 @@ body.wills-theme {
 }
 
 .wills-theme h1 {
+  color: #6248f347;
+  text-shadow: none;
   text-align: center;
 }
 
@@ -669,17 +678,19 @@ body.walters-theme {
 
 .walters-theme header {
   background-color: transparent;
+  margin: 0%;
 }
 
 .walters-theme h1 {
   color: #d1d672;
+  text-shadow: none;
   text-align: center;
 }
 
 .walters-theme .container {
   display: flex;
   flex-direction: row-reverse;
-  margin-top: 2%;
+  margin-top: 0.5%;
   margin-bottom: 5%;
 }
 
