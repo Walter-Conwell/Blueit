@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { BlogPost } = require("../models");
+const { BlogPost, User } = require("../models");
 
 router.get("/", async (req, res) => {
   // res.render("all", { loggedIn: req.session.loggedIn });
@@ -23,10 +23,17 @@ router.get("/blogwrite", async (req, res) => {
 
 router.get("/andrick", async (req, res) => {
   try {
+    var userID = await User.findAll({
+      attributes: ["id"],
+      where: {
+        email: "andrick@yahoo.com",
+      },
+    });
+    // console.log(andrickUserID[0].dataValues.id);
     const postData = await BlogPost.findAll({
       order: [["created_at", "DESC"]],
       where: {
-        user_id: 5,
+        user_id: userID[0].dataValues.id,
       },
     });
     const posts = postData.map((post) => post.get({ plain: true }));
@@ -38,10 +45,16 @@ router.get("/andrick", async (req, res) => {
 
 router.get("/madeline", async (req, res) => {
   try {
+    var userID = await User.findAll({
+      attributes: ["id"],
+      where: {
+        email: "madeline@ihatehandlebars.com",
+      },
+    });
     const postData = await BlogPost.findAll({
       order: [["created_at", "DESC"]],
       where: {
-        user_id: 1,
+        user_id: userID[0].dataValues.id,
       },
     });
     const posts = postData.map((post) => post.get({ plain: true }));
@@ -53,10 +66,16 @@ router.get("/madeline", async (req, res) => {
 
 router.get("/will", async (req, res) => {
   try {
+    var userID = await User.findAll({
+      attributes: ["id"],
+      where: {
+        email: "will@gmail.com",
+      },
+    });
     const postData = await BlogPost.findAll({
       order: [["created_at", "DESC"]],
       where: {
-        user_id: 2,
+        user_id: userID[0].dataValues.id,
       },
     });
     const posts = postData.map((post) => post.get({ plain: true }));
@@ -68,10 +87,16 @@ router.get("/will", async (req, res) => {
 
 router.get("/walter", async (req, res) => {
   try {
+    var userID = await User.findAll({
+      attributes: ["id"],
+      where: {
+        email: "walter@yahoo.com",
+      },
+    });
     const postData = await BlogPost.findAll({
       order: [["created_at", "DESC"]],
       where: {
-        user_id: 3,
+        user_id: userID[0].dataValues.id,
       },
     });
     const posts = postData.map((post) => post.get({ plain: true }));
@@ -83,10 +108,16 @@ router.get("/walter", async (req, res) => {
 
 router.get("/kyle", async (req, res) => {
   try {
+    var userID = await User.findAll({
+      attributes: ["id"],
+      where: {
+        email: "kyle@aol.com",
+      },
+    });
     const postData = await BlogPost.findAll({
       order: [["created_at", "DESC"]],
       where: {
-        user_id: 4,
+        user_id: userID[0].dataValues.id,
       },
     });
     const posts = postData.map((post) => post.get({ plain: true }));
