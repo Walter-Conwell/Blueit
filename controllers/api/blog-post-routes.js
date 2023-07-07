@@ -5,17 +5,15 @@ const withAuth = require("../../utils/withAuth");
 //localhost:3001/api/blogposts
 
 // GET all posts that match a search query
-router.get("/:search", async (req, res) => {
+router.get("/search/:search", async (req, res) => {
   try {
     const posts = await BlogPost.findAll({
       include: [{ model: Topic, as: "topics" }],
     });
-    let postsToReturn = [];
-    if(req.params.search){
-      for(let i = 0; i < posts.length; i++){
-        if((posts[i].post_title).includes(req.params.search)){
-          postsToReturns.push(posts[i]);
-        }
+    var postsToReturn = [];
+    for(let i = 0; i < posts.length; i++){
+      if((posts[i].post_title).includes(req.params.search)){
+        postsToReturns.push(posts[i]);
       }
     }
     if(postsToReturn.length > 0){
@@ -50,7 +48,7 @@ router.get("/topic/:topic", async (req, res) => {
 });
 
 // GET one post
-router.get("/:id", async (req, res) => {
+router.get("/id/:id", async (req, res) => {
   try {
     const postData = await BlogPost.findByPk(req.params.id, {
       include: [{ model: Topic, as: "topics" }],
