@@ -127,9 +127,13 @@ header {
 }
 
 h1 {
-  color: #ffffff;
-  text-shadow: 1px 1px 3px #a8a8a8;
+  color: #929292;
   padding: 1%;
+}
+
+#headerH1 {
+  color: #ffffff;
+    text-shadow: 1px 1px 3px #a8a8a8;
 }
 
 a {
@@ -315,7 +319,8 @@ body.andricks-theme {
   opacity: 0%;
 }
 
-.andricks-theme h1 {
+.andricks-theme h1,
+.andricks-theme #headerH1 {
   color: #395b4d;
   text-shadow: 1px 1px 3px #041d10;
   text-align: center;
@@ -681,7 +686,8 @@ body.walters-theme {
   margin: 0%;
 }
 
-.walters-theme h1 {
+.walters-theme h1,
+.walters-theme #headerH1 {
   color: #d1d672;
   text-shadow: none;
   text-align: center;
