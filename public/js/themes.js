@@ -2,21 +2,24 @@
 var body = document.body;
 var themeToggleBtn = document.getElementById("themeToggleTestBtn");
 /*var darkThemeBtn = document.getElementById("darkThemeBtn");*/
-var madelinesThemeBtn = document.getElementById("madelinesThemeBtn");
+
 var andricksThemeBtn = document.getElementById("andricksThemeBtn");
 var willsThemeBtn = document.getElementById("willsThemeBtn");
 var waltersThemeBtn = document.getElementById("waltersThemeBtn");
+/*
 var kylesThemeBtn = document.getElementById("kylesThemeBtn");
+var madelinesThemeBtn = document.getElementById("madelinesThemeBtn");*/
 var heroImage = document.querySelector(".hero-image");
 
 var classes = [
   "default-theme",
-  /*"dark-theme",*/
+  /*"dark-theme",
   "madelines-theme",
+  "kyles-theme"*/
   "andricks-theme",
   "wills-theme",
   "walters-theme",
-  "kyles-theme",
+  ,
 ];
 var currentClassIndex = 0;
 
@@ -40,12 +43,18 @@ function toggleClass() {
 /*function loadDarkTheme() {
   body.className = "dark-theme";
   updateHeroImageVisibility("dark-theme");
-}*/
+}
 
 function loadMadelinesTheme() {
   body.className = "madelines-theme";
   updateHeroImageVisibility("madelines-theme");
 }
+
+function loadKylesTheme() {
+  body.className = "kyles-theme";
+  updateHeroImageVisibility("kyles-theme");
+}
+*/
 
 function loadAndricksTheme() {
   body.className = "andricks-theme";
@@ -60,11 +69,6 @@ function loadWillsTheme() {
 function loadWaltersTheme() {
   body.className = "walters-theme";
   updateHeroImageVisibility("walters-theme");
-}
-
-function loadKylesTheme() {
-  body.className = "kyles-theme";
-  updateHeroImageVisibility("kyles-theme");
 }
 
 function updateHeroImageVisibility(theme) {
