@@ -27,7 +27,9 @@ router.get("/andrick", async (req, res) => {
     });
     const posts = postData.map((post) => post.get({ plain: true }));
     res.render("all", { posts, loggedIn: req.session.loggedIn });
-  } catch (err) {}
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.get("/madeline", async (req, res) => {
@@ -39,7 +41,51 @@ router.get("/madeline", async (req, res) => {
     });
     const posts = postData.map((post) => post.get({ plain: true }));
     res.render("all", { posts, loggedIn: req.session.loggedIn });
-  } catch (err) {}
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/will", async (req, res) => {
+  try {
+    const postData = await BlogPost.findAll({
+      where: {
+        user_id: 2,
+      },
+    });
+    const posts = postData.map((post) => post.get({ plain: true }));
+    res.render("all", { posts, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/walter", async (req, res) => {
+  try {
+    const postData = await BlogPost.findAll({
+      where: {
+        user_id: 3,
+      },
+    });
+    const posts = postData.map((post) => post.get({ plain: true }));
+    res.render("all", { posts, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/kyle", async (req, res) => {
+  try {
+    const postData = await BlogPost.findAll({
+      where: {
+        user_id: 4,
+      },
+    });
+    const posts = postData.map((post) => post.get({ plain: true }));
+    res.render("all", { posts, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
