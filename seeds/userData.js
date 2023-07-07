@@ -3,77 +3,45 @@ const { User } = require("../models");
 const userData = [
   {
     id: 1,
-    email: "stanley@dundermifflin.com",
+    email: "madeline@ihatehandlebars.com",
     password: "password123",
-    username: "stanleyhudson",
-    name: "Stanley Hudson",
+    username: "NotMaddy",
+    name: "Madeline Moore",
   },
-  //idontcare
   {
     id: 2,
-    email: "frodo@underhill.com",
+    email: "will@gmail.com",
     password: "password1234",
-    username: "frodo",
-    name: "Frodo Baggins",
+    username: "WillyB",
+    name: "Will Brown",
   },
-  //samsbestfriend
   {
     id: 3,
-    email: "obiwan@jedicouncil.com",
+    email: "walter@yahoo.com",
     password: "password1234",
-    username: "obiwan",
-    name: "Obi Wan Kenobi",
+    username: "WalterC",
+    name: "Walter Conwell",
   },
-  //57IHaveTheHighGround
   {
     id: 4,
-    email: "zelda@hyrulecastle.com",
+    email: "kyle@aol.com",
     password: "password1234",
-    username: "zelda",
-    name: "Princess Zelda",
+    username: "KyleS",
+    name: "Kyle Slaughter",
   },
-  //LookABloodMoon
   {
     id: 5,
-    email: "morty@harryherpsonhigh.com",
+    email: "andrick@yahoo.com",
     password: "password1234",
-    username: "morty",
-    name: "Morty Smith",
+    username: "AndyS",
+    name: "Andrick Siegmund",
   },
-  //awjeeeez
 ];
 // encrypts passwords
-const seedUser = async () =>  {
+const seedUser = async () => {
   for (const user of userData) {
-    await User.create(user)
-  } 
+    await User.create(user);
+  }
 };
 
 module.exports = seedUser;
-
-// Manually add seed data to the database
-// {
-//   "email": "stanley@dundermifflin.com",
-//   "password": "idontcare",
-//   "username": "stanleyhudson"
-// }
-// {
-//   "email": "frodo@underhill.com",
-//   "password": "samsbestfriend",
-//   "username": "frodo"
-// }
-// {
-//   "email": "obiwan@jedicouncil.com",
-//   "password": "57IHaveTheHighGround",
-//   "username": "obiwan"
-// }
-// {
-//   "email": "zelda@hyrulecastle.com",
-//   "password": "LookABloodMoon",
-//   "username": "zelda"
-// }
-// {
-//   "email": "morty@harryherpsonhigh.com",
-//   "password": "awjeeeez",
-//   "username": "morty"
-// }
