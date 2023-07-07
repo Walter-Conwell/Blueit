@@ -54,6 +54,7 @@ router.get("/:id", async (req, res) => {
 });
 
 //full blog post route
+//This route posts blog contents, creates/gets topics, then creates entries in the blogposttopic table
 router.post("/full", withAuth, async (req, res) => {
   try {
     const newPost = await BlogPost.create({
