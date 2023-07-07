@@ -84,9 +84,20 @@ function navigateToBlogWrite() {
 }
 
 window.addEventListener("load", function () {
-  console.log("WINDOW HAS BEEN LOADED AND LISTENER TRIGGERED");
   if (this.location.pathname === "/andrick") {
     loadAndricksTheme();
+  }
+  if (this.location.pathname === "/madeline") {
+    loadMadelinesTheme();
+  }
+  if (this.location.pathname === "/will") {
+    loadWillsTheme();
+  }
+  if (this.location.pathname === "/walter") {
+    loadWaltersTheme();
+  }
+  if (this.location.pathname === "/kyle") {
+    loadKylesTheme();
   }
 });
 
