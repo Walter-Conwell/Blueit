@@ -12,8 +12,7 @@
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: #000000;
-  background-color: #00000066;
+  background-color: #000000a3;
 }
 
 #loginBtn,
@@ -144,6 +143,7 @@ a:hover {
 .container {
   display: flex;
   background-color: transparent;
+  margin-bottom: 5%;
 }
 
 #editorContainer {
@@ -164,11 +164,13 @@ a:hover {
 }
 
 .sidebar {
+  text-align: center;
   margin-top: 2%;
   padding: 1%;
   background-color: #ffffff93;
   box-shadow: 2px 2px 4px #d7d7d7;
   width: 25%;
+  max-height: 500px;
 }
 
 .sidebarContent {
@@ -315,17 +317,18 @@ body.andricks-theme {
 }
 
 .andricks-theme .navigation {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: transparent;
-  box-shadow: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #082818;
+    box-shadow: none;
 }
 
 .andricks-theme .blog {
   background-color: #022315;
   color: #c5deca;
   box-shadow: none;
+  margin-bottom: 4%;
 }
 
 .andricks-theme .sidebar {
@@ -337,7 +340,27 @@ body.andricks-theme {
   width: 20%;
 }
 
+.andricks-theme .modal-content {
+  color: #879f8ce8;
+  background-color: #083220;
+  border: 0;background-color: #082818;
+  box-shadow: none;
+}
+
+.andricks-theme #loginClose,
+.andricks-theme #signUpClose {
+  background-color: #234838;
+  color: #6b9583;
+}
+
+.andricks-theme #modalLoginBtn,
+.andricks-theme #modalSignUpBtn {
+  color: #6b9583;
+  background: #234838;
+}
+
 .andricks-theme .form-control {
+  color: #4d6152;
   background-color: #022315;
 }
 
@@ -351,9 +374,9 @@ body.andricks-theme {
 }
 
 .andricks-theme #searchButton:hover {
-  background-color: #114e34;
-  color: #4e8075;
-}
+    background-color: #114e34;
+    color: #4e8075;
+    }
 
 .andricks-theme #loginBtn,
 .andricks-theme #signUpBtn,
@@ -361,7 +384,7 @@ body.andricks-theme {
 .andricks-theme #blogWriteBtn,
 .andricks-theme #saveBlogBtn,
 .andricks-theme #logOutBtn,
-.andricks-theme #profileBtn,,
+.andricks-theme #profileBtn,
 .andricks-theme #scrollUp,
 .andricks-theme #scrollDown {
   border-radius: none;
@@ -475,7 +498,6 @@ body.madelines-theme {
 body.wills-theme {
   background-image: url("/public/images/wills-theme.png");
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-size: 100%;
 }
 
@@ -555,7 +577,33 @@ body.wills-theme {
   text-shadow: none;
 }
 
+.wills-theme .loginModal,
+.wills-theme .signUpModal,
+.wills-theme .profileModal {
+  margin-top: -2%;
+}
+
+.wills-theme .modal-content {
+  z-index: 1;
+  margin-top: 0;
+  color: #6854e1;
+  background-color: #1e116a;
+}
+
+.wills-theme #loginClose,
+.wills-theme #signUpClose {
+  color: #6352cb;
+  background: #27197a;
+}
+
+.wills-theme #modalLoginBtn,
+.wills-theme #modalSignUpBtn {
+  color: #6352cb;
+    background: #27197a;
+}
+
 .wills-theme .form-control {
+  color: #d4cdff;
   background-color: #27197a;
 }
 
@@ -599,8 +647,9 @@ body.wills-theme {
 .wills-theme #blogWriteBtn:hover,
 .wills-theme #saveBlogBtn:hover,
 .wills-theme #profileBtn:hover,
-.wills-theme #logOutBtn:hover .wills-theme #scrollUp:hover,
-.wills-theme #scrollDown:hover {
+.wills-theme #logOutBtn:hover,
+.wills-theme #scrollDown:hover, 
+.wills-theme #scrollUp:hover {
   background-color: #9637d0;
   color: #68e3ff;
   text-shadow: 1px 1px 1px #55004aac;
