@@ -5,18 +5,30 @@ const withAuth = require("../../utils/withAuth");
 //localhost:3001/api/blogposts
 
 // GET all posts that match a search query
+router.get("/", async (req, res) => {
+  try {
+    const posts = await BlogPost.findAll({
+      include: [{ model: Topic, as: "topics" }],
+    });
+    res.status(200).json(posts);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// GET all posts that match a search query
 router.get("/search/:search", async (req, res) => {
   try {
     const posts = await BlogPost.findAll({
       include: [{ model: Topic, as: "topics" }],
     });
     var postsToReturn = [];
-    for(let i = 0; i < posts.length; i++){
-      if((posts[i].post_title).includes(req.params.search)){
+    for (let i = 0; i < posts.length; i++) {
+      if (posts[i].post_title.includes(req.params.search)) {
         postsToReturns.push(posts[i]);
       }
     }
-    if(postsToReturn.length > 0){
+    if (postsToReturn.length > 0) {
       res.status(200).json(postsToReturn);
     } else {
       res.status(200).json(posts);
