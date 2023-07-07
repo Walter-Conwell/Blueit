@@ -21,7 +21,9 @@
 #themeToggleTestBtn,
 #blogWriteBtn,
 #saveBlogBtn,
-#profileBtn {
+#profileBtn,
+#scrollUp,
+#scrollDown {
   display: inline-block;
   outline: none;
   cursor: pointer;
@@ -74,7 +76,9 @@
 #themeToggleTestBtn:hover,
 #blogWriteBtn:hover,
 #saveBlogBtn:hover,
-#profileBtn:hover {
+#profileBtn:hover,
+#scrollUp:hover,
+#scrollDown:hover {
   background-color: #205cdd;
   transition: all 0.2s ease;
   box-shadow: 0 0 0 0 #dedede;
@@ -118,9 +122,8 @@ header {
 }
 
 .theme-image {
-    display: none;
+  display: none;
 }
-
 
 h1 {
   padding: 1%;
@@ -154,8 +157,8 @@ a:hover {
 }
 
 .form-control {
-    border: none !important;
-    box-shadow: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .sidebar {
@@ -181,7 +184,7 @@ a:hover {
 }
 
 .sidebarBtns:hover {
-    color: #656565;
+  color: #656565;
 }
 
 .content {
@@ -214,11 +217,11 @@ a:hover {
 }
 
 .ql-toolbar.ql-snow {
-    background-color: white;
+  background-color: white;
 }
 
 .ql-container.ql-snow {
-    background-color: white;
+  background-color: white;
 }
 
 /* ------------------ DARK THEME ---------------- */
@@ -261,7 +264,9 @@ body.dark-theme {
 .dark-theme #themeToggleTestBtn,
 .dark-theme #blogWriteBtn,
 .dark-theme #saveBlogBtn,
-.dark-theme #profileBtn {
+.dark-theme #profileBtn,
+.dark-theme #scrollUp,
+.dark-theme #scrollDown {
   background-color: #252525;
   color: #505050;
 }
@@ -277,7 +282,9 @@ body.dark-theme {
 .dark-theme #searchButton:hover,
 .dark-theme #blogWriteBtn:hover,
 .dark-theme #saveBlogBtn:hover,
-.dark-theme #profileBtn:hover {
+.dark-theme #profileBtn:hover,
+.dark-theme #scrollUp:hover,
+.dark-theme #scrollDown:hover {
   color: #9d9d9d;
   background-color: #222222;
   box-shadow: 2px 2px 5px #171717bd;
@@ -286,76 +293,77 @@ body.dark-theme {
 /* ------------------ ANDRICK'S THEME ---------------- */
 
 body.andricks-theme {
-    background-image: url("/public/images/andricks-theme.png");
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-color: #082818;
+  background-image: url("/public/images/andricks-theme.png");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-color: #082818;
 }
 
 .andricks-theme header {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .andricks-theme h1 {
-    color: #b5d8c7;
-    text-align: center;
+  color: #b5d8c7;
+  text-align: center;
 }
 
 .andricks-theme .container {
-    margin-bottom: 2%;
+  margin-bottom: 2%;
 }
 
-
 .andricks-theme .navigation {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: transparent;
-    box-shadow: none;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: transparent;
+  box-shadow: none;
 }
 
 .andricks-theme .blog {
-    background-color: #022315;
-    color: #c5deca;
-    box-shadow: none;
+  background-color: #022315;
+  color: #c5deca;
+  box-shadow: none;
 }
 
 .andricks-theme .sidebar {
-    height: 50%;
-    padding: 0%;
-    background-color: transparent;
-    color: #879f8ce8;
-    box-shadow: none;
-    width: 20%;
+  height: 50%;
+  padding: 0%;
+  background-color: transparent;
+  color: #879f8ce8;
+  box-shadow: none;
+  width: 20%;
 }
 
 .andricks-theme .form-control {
-    background-color: #022315;
+  background-color: #022315;
 }
 
 .andricks-theme .form-control::placeholder {
-    color: #4b5e51;
+  color: #4b5e51;
 }
 
 .andricks-theme #searchButton {
-    background-color: #052c1c;
-    color: #446861;
+  background-color: #052c1c;
+  color: #446861;
 }
 
 .andricks-theme #searchButton:hover {
-    background-color: #114e34;
-        color: #4e8075;
-    }
+  background-color: #114e34;
+  color: #4e8075;
+}
 
 .andricks-theme #loginBtn,
 .andricks-theme #signUpBtn,
 .andricks-theme #themeToggleTestBtn,
 .andricks-theme #blogWriteBtn,
 .andricks-theme #saveBlogBtn,
-.andricks-theme #darkThemeBtn {
-    border-radius: none;
-    background-color: #b5d6ce;
-    color: #5d7e76;
+.andricks-theme #darkThemeBtn,
+.andricks-theme #scrollUp,
+.andricks-theme #scrollDown {
+  border-radius: none;
+  background-color: #b5d6ce;
+  color: #5d7e76;
 }
 
 .andricks-theme #loginBtn:hover,
@@ -363,23 +371,25 @@ body.andricks-theme {
 .andricks-theme #themeToggleTestBtn:hover,
 .andricks-theme #blogWriteBtn:hover,
 .andricks-theme #saveBlogBtn:hover,
-.andricks-theme #darkThemeBtn:hover {
-    background-color: #c3ece2;
-    color: #7ca08a;
-    box-shadow: 2px 2px 5px #171717bd;
+.andricks-theme #darkThemeBtn:hover,
+.andricks-theme #scrollUp:hover,
+.andricks-theme #scrollDown:hover {
+  background-color: #c3ece2;
+  color: #7ca08a;
+  box-shadow: 2px 2px 5px #171717bd;
 }
 
 .andricks-theme .sidebarBtns {
-    color: #4b5e51;
-    background-color: #022315;
-    text-shadow: 1px 1px 3px #00120b;
-    margin-bottom: 4%;
-    transition: 0.2s;
+  color: #4b5e51;
+  background-color: #022315;
+  text-shadow: 1px 1px 3px #00120b;
+  margin-bottom: 4%;
+  transition: 0.2s;
 }
 
 .andricks-theme .sidebarBtns:hover {
-    color: #cde7d5;
-    text-shadow: 1px 1px 3px #00170e;
+  color: #cde7d5;
+  text-shadow: 1px 1px 3px #00170e;
 }
 
 /* ------------------ MADELINE'S THEME ---------------- */
@@ -431,7 +441,9 @@ body.madelines-theme {
 .madelines-theme #themeToggleTestBtn,
 .madelines-theme #blogWriteBtn,
 .madelines-theme #saveBlogBtn,
-.madelines-theme #profileBtn {
+.madelines-theme #profileBtn,
+.madelines-theme #scrollUp,
+.madelines-theme #scrollDown {
   background-color: #252525;
   color: #505050;
 }
@@ -446,7 +458,9 @@ body.madelines-theme {
 .madelines-theme #themeToggleTestBtn:hover,
 .madelines-theme #searchButton:hover,
 .madelines-theme #blogWriteBtn:hover,
-.madelines-theme #saveBlogBtn:hover {
+.madelines-theme #saveBlogBtn:hover,
+.madelines-theme #scrollUp:hover,
+.madelines-theme #scrollDown:hover {
   color: #9d9d9d;
   background-color: #222222;
   box-shadow: 2px 2px 5px #171717bd;
@@ -455,108 +469,108 @@ body.madelines-theme {
 /* ------------------ WILL'S THEME ---------------- */
 
 body.wills-theme {
-    background-image: url("/public/images/wills-theme.png");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100%;
+  background-image: url("/public/images/wills-theme.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
 }
 
 .wills-theme header {
-    display: none;
+  display: none;
 }
 
 .wills-theme h1 {
-    text-align: center;
+  text-align: center;
 }
 
 .wills-theme .container {
-    display: flex;
-    flex-direction: row-reverse;
-    margin-top: 2%;
-    margin-bottom: 5%;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 2%;
+  margin-bottom: 5%;
 }
 
 .wills-theme .content {
-    height: 50%;
+  height: 50%;
 }
 
 .wills-theme .navigation {
-    display: flex;
-    width: 100%;
-    background-color: transparent;
-    box-shadow: none;
-    position: fixed;
+  display: flex;
+  width: 100%;
+  background-color: transparent;
+  box-shadow: none;
+  position: fixed;
 }
 
 .wills-theme .blog {
-    background-color: #27197afc;
-    border-color: transparent;
-    color: #c8a1f8;
-    text-shadow: 1px 1px 2px #050016;
-    box-shadow: none;
-    transition: 0.6s;
+  background-color: #27197afc;
+  border-color: transparent;
+  color: #c8a1f8;
+  text-shadow: 1px 1px 2px #050016;
+  box-shadow: none;
+  transition: 0.6s;
 }
 
 .wills-theme .blog:hover {
-    background-color: #440084fc;
-    color: #eaacff;
-    text-shadow: 1px 1px 2px #050016;
+  background-color: #440084fc;
+  color: #eaacff;
+  text-shadow: 1px 1px 2px #050016;
 }
 
 .wills-theme .sidebar {
-    float: right;
-    margin-top: 3.8%;
-    margin-left: 2%;
-    height: 50%;
-    padding: 0%;
-    background-color: transparent;
-    color: #5546ac;
-    box-shadow: none;
-    width: 20%;
+  float: right;
+  margin-top: 3.8%;
+  margin-left: 2%;
+  height: 50%;
+  padding: 0%;
+  background-color: transparent;
+  color: #5546ac;
+  box-shadow: none;
+  width: 20%;
 }
 
 .wills-theme .sidebarContent {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 19px;
-    line-height: 40pt;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 19px;
+  line-height: 40pt;
 }
 
 .wills-theme .sidebarBtns {
-    color: #6150c3;
-    background-color: #27197A;
-    text-shadow: 1px 1px 3px #07001d;
-    transition: 0.2s;
-    margin-bottom: 4%;
+  color: #6150c3;
+  background-color: #27197a;
+  text-shadow: 1px 1px 3px #07001d;
+  transition: 0.2s;
+  margin-bottom: 4%;
 }
 
 .wills-theme .sidebarBtns:hover {
-    background-color: #6C4DE5;
-    color: #9176ff;
-    text-shadow: none;
+  background-color: #6c4de5;
+  color: #9176ff;
+  text-shadow: none;
 }
 
 .wills-theme .form-control {
-    background-color: #27197A;
+  background-color: #27197a;
 }
 
 .wills-theme .form-control::placeholder {
-    color: #6150c3;
+  color: #6150c3;
 }
 
 .wills-theme .form-control:hover {
-    background-color: #9283eb;
+  background-color: #9283eb;
 }
 
 .wills-theme #searchButton {
-    background-color: #332587;
-    color: #6150c3;
-    }
+  background-color: #332587;
+  color: #6150c3;
+}
 
 .wills-theme #searchButton:hover {
-    background-color: #030D48;
-    color: #3d4a93;
+  background-color: #030d48;
+  color: #3d4a93;
 }
 
 .wills-theme #loginBtn,
@@ -564,12 +578,14 @@ body.wills-theme {
 .wills-theme #themeToggleTestBtn,
 .wills-theme #blogWriteBtn,
 .wills-theme #saveBlogBtn,
-.wills-theme #darkThemeBtn {
-    background-color: #ff00dd4f;
-    color: #24c1e6;
-    text-shadow: 1px 1px 3px #33004d;
-    box-shadow: 1px 1px 3px #8007bda9;
-    transition: 0.2s;
+.wills-theme #darkThemeBtn,
+.wills-theme #scrollUp,
+.wills-theme #scrollDown {
+  background-color: #ff00dd4f;
+  color: #24c1e6;
+  text-shadow: 1px 1px 3px #33004d;
+  box-shadow: 1px 1px 3px #8007bda9;
+  transition: 0.2s;
 }
 
 .wills-theme #loginBtn:hover,
@@ -577,14 +593,13 @@ body.wills-theme {
 .wills-theme #themeToggleTestBtn:hover,
 .wills-theme #blogWriteBtn:hover,
 .wills-theme #saveBlogBtn:hover,
-.wills-theme #darkThemeBtn:hover {
-        background-color: #9637d0;
-        color: #68e3ff;
-        text-shadow: 1px 1px 1px #55004aac;
-        box-shadow: 1px 1px 3px #54007f;
+.wills-theme #darkThemeBtn:hover .wills-theme #scrollUp:hover,
+.wills-theme #scrollDown:hover {
+  background-color: #9637d0;
+  color: #68e3ff;
+  text-shadow: 1px 1px 1px #55004aac;
+  box-shadow: 1px 1px 3px #54007f;
 }
-
-
 
 /* ------------------ WALTER'S THEME ---------------- */
 
