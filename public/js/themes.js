@@ -22,13 +22,13 @@ var currentClassIndex = 0;
 
 themeToggleBtn && themeToggleBtn.addEventListener("click", toggleClass);
 /*darkThemeBtn && darkThemeBtn.addEventListener("click", loadDarkTheme);*/
-madelinesThemeBtn &&
-  madelinesThemeBtn.addEventListener("click", loadMadelinesTheme);
-andricksThemeBtn &&
-  andricksThemeBtn.addEventListener("click", loadAndricksTheme);
-willsThemeBtn && willsThemeBtn.addEventListener("click", loadWillsTheme);
-waltersThemeBtn && waltersThemeBtn.addEventListener("click", loadWaltersTheme);
-kylesThemeBtn && kylesThemeBtn.addEventListener("click", loadKylesTheme);
+// madelinesThemeBtn &&
+//   madelinesThemeBtn.addEventListener("click", loadMadelinesTheme);
+// andricksThemeBtn &&
+//   andricksThemeBtn.addEventListener("click", loadAndricksTheme);
+// willsThemeBtn && willsThemeBtn.addEventListener("click", loadWillsTheme);
+// waltersThemeBtn && waltersThemeBtn.addEventListener("click", loadWaltersTheme);
+// kylesThemeBtn && kylesThemeBtn.addEventListener("click", loadKylesTheme);
 
 function toggleClass() {
   currentClassIndex = (currentClassIndex + 1) % classes.length;
@@ -49,7 +49,6 @@ function loadMadelinesTheme() {
 
 function loadAndricksTheme() {
   body.className = "andricks-theme";
-  location.replace("/andrick");
   updateHeroImageVisibility("andricks-theme");
 }
 
@@ -83,5 +82,12 @@ blogWriteBtn && blogWriteBtn.addEventListener("click", navigateToBlogWrite);
 function navigateToBlogWrite() {
   window.location.href = "/blogwrite";
 }
+
+window.addEventListener("load", function () {
+  console.log("WINDOW HAS BEEN LOADED AND LISTENER TRIGGERED");
+  if (this.location.pathname === "/andrick") {
+    loadAndricksTheme();
+  }
+});
 
 //cat theme
