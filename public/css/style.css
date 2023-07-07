@@ -23,7 +23,8 @@
 #saveBlogBtn,
 #profileBtn,
 #scrollUp,
-#scrollDown {
+#scrollDown,
+#logOutBtn {
   display: inline-block;
   outline: none;
   cursor: pointer;
@@ -78,7 +79,8 @@
 #saveBlogBtn:hover,
 #profileBtn:hover,
 #scrollUp:hover,
-#scrollDown:hover {
+#scrollDown:hover,
+#logOutBtn:hover {
   background-color: #205cdd;
   transition: all 0.2s ease;
   box-shadow: 0 0 0 0 #dedede;
@@ -358,7 +360,8 @@ body.andricks-theme {
 .andricks-theme #themeToggleTestBtn,
 .andricks-theme #blogWriteBtn,
 .andricks-theme #saveBlogBtn,
-.andricks-theme #darkThemeBtn,
+.andricks-theme #logOutBtn,
+.andricks-theme #profileBtn,,
 .andricks-theme #scrollUp,
 .andricks-theme #scrollDown {
   border-radius: none;
@@ -371,7 +374,8 @@ body.andricks-theme {
 .andricks-theme #themeToggleTestBtn:hover,
 .andricks-theme #blogWriteBtn:hover,
 .andricks-theme #saveBlogBtn:hover,
-.andricks-theme #darkThemeBtn:hover,
+.andricks-theme #logOutBtn:hover,
+.andricks-theme #profileBtn:hover,
 .andricks-theme #scrollUp:hover,
 .andricks-theme #scrollDown:hover {
   background-color: #c3ece2;
@@ -578,7 +582,8 @@ body.wills-theme {
 .wills-theme #themeToggleTestBtn,
 .wills-theme #blogWriteBtn,
 .wills-theme #saveBlogBtn,
-.wills-theme #darkThemeBtn,
+.wills-theme #profileBtn,
+.wills-theme #logOutBtn,
 .wills-theme #scrollUp,
 .wills-theme #scrollDown {
   background-color: #ff00dd4f;
@@ -593,7 +598,8 @@ body.wills-theme {
 .wills-theme #themeToggleTestBtn:hover,
 .wills-theme #blogWriteBtn:hover,
 .wills-theme #saveBlogBtn:hover,
-.wills-theme #darkThemeBtn:hover .wills-theme #scrollUp:hover,
+.wills-theme #profileBtn:hover,
+.wills-theme #logOutBtn:hover .wills-theme #scrollUp:hover,
 .wills-theme #scrollDown:hover {
   background-color: #9637d0;
   color: #68e3ff;

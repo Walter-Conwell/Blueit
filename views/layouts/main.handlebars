@@ -48,6 +48,7 @@
         {{!-- if there's anything to be displayed only when logged in, use this if below!! --}}
         {{#if loggedIn}}
         <button id="profileBtn">Profile</button>
+        <button id="logOutBtn">Log Out</button>
         {{!-- logOutBtn --}}
         {{else}}
         <button id="signUpBtn">Sign Up</button>
@@ -63,9 +64,11 @@
     <script src="./js/signup.js"></script>
     <script src="./js/themes.js"></script>
     <script src="./js/profile.js"></script>
-    <script src="./js/search.js"></script>
+    {{#if loggedIn}}
+    <script src="./js/logout.js"></script>
     <script src="./js/scrollUp.js"></script>
     <script src="./js/scrollDown.js"></script>
+    {{/if}}
 </body>
 
 </html>
