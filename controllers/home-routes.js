@@ -30,4 +30,16 @@ router.get("/andrick", async (req, res) => {
   } catch (err) {}
 });
 
+router.get("/madeline", async (req, res) => {
+  try {
+    const postData = await BlogPost.findAll({
+      where: {
+        user_id: 1,
+      },
+    });
+    const posts = postData.map((post) => post.get({ plain: true }));
+    res.render("all", { posts, loggedIn: req.session.loggedIn });
+  } catch (err) {}
+});
+
 module.exports = router;
