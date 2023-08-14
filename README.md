@@ -26,6 +26,8 @@ This application requires no installation. You can visit the website as it is de
 This application is fairly simple. When presented with the opening page, the user will have the opportunity to view blogposts that already exist. If the user wants to create their own blogposts they simply need to singup to create a login. Once they signup they will automatically be logged in and create their own blogposts.
 
 ![Wireframe](./diagrams/wireframes/home-wireframe-loggedin.png)
+![image](https://github.com/Walter-Conwell/Blueit/assets/131832544/6ce7e916-fb5b-4169-b400-7edf55b6e4ac)
+
 
 ## Credits
 
